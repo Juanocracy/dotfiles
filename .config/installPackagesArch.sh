@@ -39,7 +39,7 @@ yay -Syyu --noconfirm visual-studio-code-bin
 yay -Syyu --noconfirm intellij-idea-ultimate-edition
 yay -Syyu --noconfirm spotify-adblock-git
 yay -Syyu --noconfirm lavat-git
-yay -Syyu --noconfirm cava
+yay -Syyu --noconfirm cava-git
 
 # Habilitar servicios
 sudo systemctl enable sddm.service
