@@ -116,7 +116,7 @@
             "headphone": "",
             "default": ["󰖀", "󰕾", ""]
         },
-        "on-click": "pamixer -t",
+        "on-click": "pavucontrol",
         "scroll-step": 1
     },
     
