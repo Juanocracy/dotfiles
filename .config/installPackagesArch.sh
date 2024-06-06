@@ -7,45 +7,55 @@ sudo pacman -Syyu --noconfirm
 sudo pacman -S --needed base-devel
 
 # Verificar si yay está instalado
-if ! command -v yay &> /dev/null; then
-    echo "Instalando yay..."
-    git clone https://aur.archlinux.org/yay
-    cd yay/
-    makepkg -si
-    cd ..
+if ! command -v yay &>/dev/null; then
+	echo "Instalando yay..."
+	git clone https://aur.archlinux.org/yay
+	cd yay/
+	makepkg -si
+	cd ..
+  rm -rf yay
 else
-    echo "Yay ya está instalado"
+	echo "Yay ya está instalado"
 fi
 
 # Paquetes desde repositorios oficiales
-sudo pacman -Syyu --noconfirm hyprland kitty sddm wofi waybar dunst swaylock git vim btop bluez bluez-tools bluez-utils pipewire pavucontrol jdk-openjdk python noto-fonts dolphin libreoffice-fresh discord obsidian steam blueman docker
+sudo pacman -Syyu --noconfirm hyprland kitty sddm swaylock btop pipewire jdk-openjdk python noto-fonts dolphin libreoffice-fresh discord obsidian steam blueman docker
+
+git nvim bluez bluez-tools bluez-utils blueman pavucontrol dunst wofi waybar unzip
+
+#Revisar el estado del bluetooth
+systemctl status bluetooth.service
+
+#Activar el servicio
+systemctl start bluetooth.service
+
+#Instalar LazyVim
+git clone https://github.com/LazyVim/Starter ~/.config/nvim rm -rf ~/.config/nvim/.git
 
 # Paquetes desde AUR con yay
-yay_packages=(
-    vmware-workstation
-    swww
-    wlogout
-    ttf-ms-fonts
-    ttf-font-awesome
-    awesome-terminal-fonts
-    ttf-cascadia-code
-    noto-fonts-emoji
-    noto-fonts-cjk
-    noto-fonts-extra
-    nerd-fonts-git
-    microsoft-edge-stable-bin
-    visual-studio-code-bin
-    intellij-idea-ultimate-edition
-    spotify-adblock-git
-    lavat-git
-    cava-git
-)
+yay_packages= (
+  microsoft-edge-stable-bin
+  nerd-fonts-git
+  ttf-ms-fonts
+  lavat-git
+  cava-git
+  ttf-font-awesome
+  awesome-terminal-fonts
+  noto-fonts-emoji
+  noto-fonts-cjk
+  noto-fonts-extra
 
-for pkg in "${yay_packages[@]}"; do
-    yay -Syyu --noconfirm "$pkg"
-done
+  vmware-workstation
+  swww
+  wlogout
+  ttf-cascadia-code
+  visual-studio-code-bin
+  intellij-idea-ultimate-edition
+  spotify-adblock-git
+  )
 
-# Habilitar servicios
-sudo systemctl enable sddm.service bluetooth.service docker.service
+  for pkg in "${yay_packages[@]}"; do yay -Syyu --noconfirm "$pkg" done
 
-echo "Instalación y configuración completada."
+  # Habilitar servicios
+  sudo systemctl enable sddm.service bluetooth.service docker.service
+  echo "Instalación y configuración completada."
