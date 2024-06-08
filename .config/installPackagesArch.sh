@@ -18,14 +18,14 @@ else
 	echo "Yay ya está instalado"
 fi
 
-# Paquetes desde repositorios oficiales
-sudo pacman -Syyu --noconfirm hyprland kitty sddm swaylock btop pipewire jdk-openjdk python noto-fonts dolphin libreoffice-fresh discord obsidian steam blueman docker
+#Paquetes necesarios desde una instalación barebone
+# hyprlan kitty sddm pipewire
 
-git nvim bluez bluez-tools bluez-utils blueman pavucontrol dunst wofi waybar unzip
+# Paquetes desde repositorios oficiales
+sudo pacman -Syyu --noconfirm swaylock btop jdk-openjdk python noto-fonts dolphin discord obsidian steam blueman git nvim bluez bluez-tools bluez-utils blueman pavucontrol dunst wofi waybar unzip cliphist starship
 
 #Revisar el estado del bluetooth
 systemctl status bluetooth.service
-
 #Activar el servicio
 systemctl start bluetooth.service
 
@@ -34,6 +34,7 @@ git clone https://github.com/LazyVim/Starter ~/.config/nvim rm -rf ~/.config/nvi
 
 # Paquetes desde AUR con yay
 yay_packages= (
+  onlyoffice-bin
   microsoft-edge-stable-bin
   nerd-fonts-git
   ttf-ms-fonts
