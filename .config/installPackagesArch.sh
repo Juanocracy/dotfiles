@@ -22,7 +22,7 @@ fi
 # hyprlan kitty sddm pipewire
 
 # Paquetes desde repositorios oficiales
-sudo pacman -Syyu --noconfirm swaylock btop jdk-openjdk python noto-fonts dolphin discord obsidian steam blueman git nvim bluez bluez-tools bluez-utils blueman pavucontrol swaync wofi waybar unzip cliphist starship
+sudo pacman -Syyu --noconfirm swaylock btop jdk-openjdk python noto-fonts dolphin discord obsidian steam blueman git nvim bluez bluez-tools bluez-utils blueman pavucontrol swaync wofi waybar unzip cliphist starship ripgrep fd
 
 #Revisar el estado del bluetooth
 systemctl status bluetooth.service
