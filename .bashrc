@@ -13,3 +13,5 @@ PS1='[\u@\h \W]\$ '
 #nvim
 #Agregar Starship
 eval "$(starship init bash)"
+
+bind "set completion-ignore-case on"
