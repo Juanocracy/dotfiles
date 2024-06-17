@@ -34,7 +34,7 @@ official_packages=(
 	steam
 	blueman
 	git
-	nvim
+	neovim
 	bluez
 	bluez-tools
 	bluez-utils
@@ -50,7 +50,15 @@ official_packages=(
 	ttf-cascadia-code
 )
 
-sudo pacman -Syyu --noconfirm "${official_packages[@]}"
+# Iterar sobre la lista de paquetes e intentar instalar cada uno
+for pkg in "${official_packages[@]}"; do
+	echo "Instalando $pkg..."
+	sudo pacman -S --noconfirm "$pkg"
+	if [ $? -ne 0 ]; then
+		echo "Error al instalar $pkg. Abortando."
+		exit 1
+	fi
+done
 
 # Revisar el estado del bluetooth y activar el servicio si no está activo
 if ! systemctl is-active --quiet bluetooth.service; then
