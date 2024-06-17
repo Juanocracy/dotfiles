@@ -23,6 +23,7 @@ fi
 
 # Instalar paquetes desde repositorios oficiales
 official_packages=(
+	fastfetch
 	swaylock
 	btop
 	jdk-openjdk
