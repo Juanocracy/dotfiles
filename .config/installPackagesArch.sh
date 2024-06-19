@@ -29,10 +29,11 @@ official_packages=(
 	jdk-openjdk
 	python
 	noto-fonts
-	dolphin
+	zellij
+	thunar #dolphin
 	discord
 	obsidian
-	steam
+	#steam
 	blueman
 	git
 	neovim
@@ -49,6 +50,13 @@ official_packages=(
 	ripgrep
 	fd
 	ttf-cascadia-code
+	dotnet-sdk
+
+	#Media Software
+	obs-studio
+	gimp
+	audacity
+	darktable
 )
 
 # Iterar sobre la lista de paquetes e intentar instalar cada uno
@@ -75,7 +83,7 @@ rm -rf ~/.config/nvim/.git
 aur_packages=(
 	onlyoffice-bin
 	microsoft-edge-stable-bin
-	nerd-fonts-git
+	#nerd-fonts-git
 	ttf-ms-fonts
 	lavat-git
 	cava-git
@@ -90,6 +98,9 @@ aur_packages=(
 	visual-studio-code-bin
 	intellij-idea-ultimate-edition
 	spotify-adblock-git
+
+	#Media Software
+	davinci-resolve
 )
 
 for pkg in "${aur_packages[@]}"; do
