@@ -3,34 +3,30 @@
     "position": "top",
     "spacing": 0,
     "height": 10,
+
     "modules-left": [
         "custom/logo",
         "hyprland/workspaces"
     ],
     "modules-center": [
         "clock",
-        "custom/spotify",
+        "custom/launcher",
     ],
+
     "modules-right": [
         "tray",
         "memory",
         "network",
         "pulseaudio",
-        "battery",
         "custom/power"
     ],
 
+    "custom/logo": {
+        "format": "",
+        "tooltip-format": "Full system upgrade",
+        "on-click": "kitty sudo pacman -Syyu && kitty yay -Syyu"
+    },
 
-    "custom/spotify": {
-         "format": " {}",
-         "return-type": "json",
-         "max-length": 40,
-//         "interval": 30, // Remove this if your script is endless and write in loop
-         "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify", // Script in resources folder
-         "on-click-middle": "playerctl prev",
-         "on-click": "playerctl play-pause",
-         "on-click-right": "playerctl next"
-     },
     "custom/launcher": {
         "format": "󱗼",
         "tooltip-format": "Wofi drun Menu",
@@ -38,29 +34,7 @@
         "color": "#FF6347",
         "button": true
     },
-    "custom/logo": {
-        "format": "",
-        "tooltip-format": "Full system upgrade",
-        "on-click": "kitty --class float $HOME/.local/share/bin/syu"
-    },
-    "custom/firefox": {
-        "format": "",
-        "on-click": "firefox",
-        "tooltip-format": "Firefox web browser"
-    },
-    "custom/kitty": {
-        "format": "",
-        "tooltip-format": "Kitty terminal",
-        "on-click": "kitty $HOME"
-    },
-    "wlr/taskbar": {
-        "format": "{icon}",
-        "on-click": "activate",
-        "on-click-right": "fullscreen",
-        "icon-theme": "WhiteSur",
-        "icon-size": 25,
-        "tooltip-format": "{title}"
-    },
+
     "hyprland/workspaces": {
         "on-click": "activate",
         "format": "{icon}",
@@ -80,14 +54,39 @@
         },
 
         "persistent_workspaces": {
-            "1": [],
-            "2": [],
-            "3": [],
-            "4": [],
-            "5": [],
-            "6": [],
+            // "1": [],
         }
     },
+
+    "custom/spotify": {
+         "format": " {}",
+         "return-type": "json",
+         "max-length": 40,
+//         "interval": 30, // Remove this if your script is endless and write in loop
+         "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify", // Script in resources folder
+         "on-click-middle": "playerctl prev",
+         "on-click": "playerctl play-pause",
+         "on-click-right": "playerctl next"
+     },
+    "custom/firefox": {
+        "format": "",
+        "on-click": "firefox",
+        "tooltip-format": "Firefox web browser"
+    },
+    "custom/kitty": {
+        "format": "",
+        "tooltip-format": "Kitty terminal",
+        "on-click": "kitty $HOME"
+    },
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "on-click-right": "fullscreen",
+        //"icon-theme": "WhiteSur",
+        "icon-size": 15,
+        "tooltip-format": "{title}"
+    },
+
     "memory": {
         "interval": 5,
         "format": "󰍛 {}%",
@@ -123,6 +122,6 @@
     "custom/power": {
         "format": "󰤆",
         "tooltip": false,
-        "on-click": "~/.config/wofi/power.sh &"
+        "on-click": "wlogout"
     }
 }

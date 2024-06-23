@@ -99,6 +99,9 @@ aur_packages=(
 	intellij-idea-ultimate-edition
 	spotify-adblock-git
 
+	# .Net
+	rider
+
 	#Media Software
 	davinci-resolve
 )
