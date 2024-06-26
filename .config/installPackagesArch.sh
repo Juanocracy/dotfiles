@@ -29,8 +29,10 @@ official_packages=(
 	jdk-openjdk
 	python
 	noto-fonts
+	zsh # Command terminal is fundamental to configure the shell and the framework with the promp.
 	zellij
 	thunar #dolphin
+	thunderbird
 	discord
 	obsidian
 	#steam
@@ -90,6 +92,7 @@ aur_packages=(
 	ttf-font-awesome
 	awesome-terminal-fonts
 	noto-fonts-emoji
+	emote
 	noto-fonts-cjk
 	noto-fonts-extra
 	vmware-workstation

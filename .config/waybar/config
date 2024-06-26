@@ -5,12 +5,12 @@
     "height": 10,
 
     "modules-left": [
-        "custom/logo",
+        "custom/launcher",
         "hyprland/workspaces"
     ],
     "modules-center": [
         "clock",
-        "custom/launcher",
+        "custom/logo"
     ],
 
     "modules-right": [
@@ -22,13 +22,13 @@
     ],
 
     "custom/logo": {
-        "format": "",
+        "format": "📦️",
         "tooltip-format": "Full system upgrade",
         "on-click": "kitty sudo pacman -Syyu && kitty yay -Syyu"
     },
 
     "custom/launcher": {
-        "format": "󱗼",
+        "format": "🏮",
         "tooltip-format": "Wofi drun Menu",
         "on-click": "wofi --show drun -I -a -n -W 500 -H 376 -s ~/.config/wofi/themes/dracula.css",
         "color": "#FF6347",
@@ -39,22 +39,16 @@
         "on-click": "activate",
         "format": "{icon}",
         "format-icons": {
-            "default": "",
-            "1": "1",
-            "2": "2",
-            "3": "3",
-            "4": "4",
-            "5": "5",
-            "6": "6",
-            "7": "7",
-            "8": "8",
-            "9": "9",
+            "default": "🟣",
+            // "1": "1",
             "active": "🩵",
-            "urgent": ""
+            "urgent": "🚧"
         },
 
         "persistent_workspaces": {
-            // "1": [],
+            "1": [],
+            "2": [],
+            "3": [],
         }
     },
 
@@ -89,7 +83,7 @@
 
     "memory": {
         "interval": 5,
-        "format": "󰍛 {}%",
+        "format": "🧠 {}%",
         "max-length": 10
     },
     "tray": {
@@ -98,8 +92,8 @@
     "clock": {
         "timezone": "America/Bogota",
         "tooltip-format": "<tt>{calendar}</tt>",
-        "format-alt": "  {:%a, %d %b %Y}",
-        "format": "󱑎   {:%I:%M %p}"
+        "format-alt": "🗓️  {:%a, %d %b %Y}",
+        "format": "🕦️ {:%I:%M %p}"
     },
     "network": {
         "format-wifi": "{name},{icon}",
@@ -110,17 +104,17 @@
         "format": "Volume: {volume}% {icon}",
         "nospacing": 1,
         "tooltip": false,
-        "format-muted": "󰝟",
+        "format-muted": "🔇",
         "format-icons": {
-            "headphone": "",
-            "default": ["󰖀", "󰕾", ""]
+            "headphone": "🎧️",
+            "default": ["🔈️", "🔉", "🔊"]
         },
         "on-click": "pavucontrol",
         "scroll-step": 1
     },
     
     "custom/power": {
-        "format": "󰤆",
+        "format": "🔌",
         "tooltip": false,
         "on-click": "wlogout"
     }
