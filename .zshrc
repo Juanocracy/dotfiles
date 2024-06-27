@@ -80,9 +80,10 @@ ZSH_THEME="robbyrussell"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
+eval "$(starship init zsh)" # Added for use starship prompt.
 
 # Added by me, for use the powerlevel10k theme
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+#source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # User configuration
 
@@ -114,4 +115,4 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+#[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
