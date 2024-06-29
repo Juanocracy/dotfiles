@@ -53,6 +53,7 @@ official_packages=(
 	fd
 	ttf-cascadia-code
 	dotnet-sdk
+	packagekit-qt6 # For installing apps through Discover on plasma
 
 	#Media Software
 	obs-studio
