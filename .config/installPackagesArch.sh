@@ -35,7 +35,7 @@ official_packages=(
   thunderbird
   discord
   obsidian
-  #steam #lib32-amdvlk for amd processor.
+  steam #lib32-amdvlk for amd processor.
   blueman
   git
   neovim
@@ -55,6 +55,7 @@ official_packages=(
   dotnet-sdk
   packagekit-qt6 # For installing apps through Discover on plasma
   os-prober      #For grub detection.
+  npm
 
   #Media Software
   obs-studio
@@ -103,6 +104,7 @@ aur_packages=(
   visual-studio-code-bin
   intellij-idea-ultimate-edition
   spotify-adblock-git
+  pipes.sh
 
   # .Net
   rider
