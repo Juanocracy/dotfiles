@@ -56,6 +56,7 @@ official_packages=(
   packagekit-qt6 # For installing apps through Discover on plasma
   os-prober      #For grub detection.
   npm
+  cmatrix
 
   #Media Software
   obs-studio
