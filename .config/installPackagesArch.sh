@@ -106,6 +106,8 @@ aur_packages=(
   intellij-idea-ultimate-edition
   spotify-adblock-git
   pipes.sh
+  vesktop
+  teams-for-linux
 
   # .Net
   rider
