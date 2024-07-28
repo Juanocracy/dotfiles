@@ -113,13 +113,19 @@ aur_packages=(
   rider
 
   #Media Software
-  davinci-resolve
+  #davinci-resolve
   tracktion-waveform
 )
 
 for pkg in "${aur_packages[@]}"; do
   yay -Syyu --noconfirm "$pkg"
 done
+
+#Install davinci-resolve with opencl-clover-mesa
+yay -Syyu davinci-resolve --asdeps opencl-clover-mesa
+
+#Change shell
+sudo chsh -s $(which zsh)
 
 # Habilitar servicios
 sudo systemctl enable sddm.service bluetooth.service docker.service
