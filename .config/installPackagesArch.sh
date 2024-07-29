@@ -121,11 +121,20 @@ for pkg in "${aur_packages[@]}"; do
   yay -Syyu --noconfirm "$pkg"
 done
 
-#Install davinci-resolve with opencl-clover-mesa
+# Install davinci-resolve with opencl-clover-mesa
 yay -Syyu davinci-resolve --asdeps opencl-clover-mesa
 
-#Change shell
+# Change shell
 sudo chsh -s $(which zsh)
+
+# Change the os-prober
+# Habilita os-prober: Asegúrate de que os-prober esté habilitado en la configuración de GRUB.
+# Abre el archivo /etc/default/grub con un editor de texto (por ejemplo, sudo vi /etc/default/grub) y busca la línea:
+# GRUB_DISABLE_OS_PROBER=true
+# Si está configurado como true, cámbialo a false. Si no existe, agrégalo:
+# GRUB_DISABLE_OS_PROBER=false
+# Guarda el archivo y actualiza la configuración de GRUB:
+# sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 # Habilitar servicios
 sudo systemctl enable sddm.service bluetooth.service docker.service
