@@ -87,3 +87,5 @@ Desktop/
 .thunderbird/
 .vscode/
 Documents/
+.config/plasmanotifyrc
+.config/spectaclerc
