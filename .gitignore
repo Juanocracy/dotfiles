@@ -92,3 +92,7 @@ Documents/
 .config/discord
 .config/kscreenlockerrc
 .config/xdg-desktop-portal-kderc
+.config/cava/
+Downloads/
+.cargo/
+.config/spotify/
