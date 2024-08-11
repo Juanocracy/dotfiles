@@ -57,6 +57,7 @@ official_packages=(
   os-prober      #For grub detection.
   npm
   cmatrix
+  docker
 
   #Media Software
   obs-studio
@@ -92,7 +93,7 @@ aur_packages=(
   #nerd-fonts-git
   ttf-ms-fonts
   lavat-git
-  cava-git
+  cava
   ttf-font-awesome
   awesome-terminal-fonts
   noto-fonts-emoji
@@ -104,10 +105,11 @@ aur_packages=(
   wlogout
   visual-studio-code-bin
   intellij-idea-ultimate-edition
-  spotify-adblock-git
+  spotify-adblock
   pipes.sh
   vesktop
   teams-for-linux
+  notion-app-electron
 
   # .Net
   rider
