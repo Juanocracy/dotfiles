@@ -1,0 +1,18 @@
+{
+  "accounts": {
+    "camilop420@kindle.com": [
+      "EPUB, TPZ",
+      true,
+      true
+    ]
+  },
+  "aliases": {},
+  "encryption": "TLS",
+  "from_": "camilop420@hotmail.com",
+  "relay_host": "smtp-mail.outlook.com",
+  "relay_password": "7375707574616173657869613132",
+  "relay_port": 587,
+  "relay_username": "camilop420@hotmail.com",
+  "subjects": {},
+  "tags": {}
+}

@@ -96,3 +96,10 @@ Documents/
 Downloads/
 .cargo/
 .config/spotify/
+.config/Notion/
+.config/kdeconnect/
+.config/knfsshare
+.config/konsolerc
+.config/konsolesshconfig
+.config/mimeapps.list
+Calibre\ Library/

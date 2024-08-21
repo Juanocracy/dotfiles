@@ -1,0 +1,11 @@
+[Desktop Entry]
+Categories=Office;
+Comment=Your connected workspace for wiki, docs & projects
+Exec=notion-app %U
+GenericName=Online Document Editor
+Icon=notion
+MimeType=x-scheme-handler/notion;
+Name=Notion
+StartupNotify=false
+Type=Application
+Version=1.0

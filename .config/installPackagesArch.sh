@@ -23,7 +23,9 @@ fi
 
 # Instalar paquetes desde repositorios oficiales
 official_packages=(
+  hyprland
   fastfetch
+  kitty
   swaylock
   btop
   jdk-openjdk
@@ -36,7 +38,7 @@ official_packages=(
   discord
   obsidian
   steam #lib32-amdvlk for amd processor.
-  blueman
+  #blueman
   git
   neovim
   bluez
@@ -52,6 +54,7 @@ official_packages=(
   ripgrep
   fd
   ttf-cascadia-code
+  calibre
   dotnet-sdk
   packagekit-qt6 # For installing apps through Discover on plasma
   os-prober      #For grub detection.
@@ -127,7 +130,7 @@ done
 yay -Syyu davinci-resolve --asdeps opencl-clover-mesa
 
 # Change shell
-sudo chsh -s $(which zsh)
+sudo chsh -s $(which zsh) juan
 
 # Change the os-prober
 # Habilita os-prober: Asegúrate de que os-prober esté habilitado en la configuración de GRUB.
