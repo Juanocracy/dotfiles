@@ -103,3 +103,5 @@ Downloads/
 .config/konsolesshconfig
 .config/mimeapps.list
 Calibre\ Library/
+.config/okularrc
+.angular-config.json
