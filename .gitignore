@@ -105,3 +105,21 @@ Downloads/
 Calibre\ Library/
 .config/okularrc
 .angular-config.json
+.zcompdump
+.config/Postman/
+.config/baloofileinformationrc
+.config/calibre/viewer-webengine.json
+.config/calibre/viewer/
+.config/gwenviewrc
+.config/menus/
+.config/notion-calendar-electron/
+.config/systemsettingsrc
+.dotnet/
+.gradle/
+.jdks/
+.m2/
+.nuget/
+.redhat/
+.sts4/
+.templateengine/
+.yarnrc

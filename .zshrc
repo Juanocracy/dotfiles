@@ -107,3 +107,11 @@ eval "$(starship init zsh)"
 
 # Load Angular CLI autocompletion.
 # source <(ng completion script)
+
+unsetopt CASE_GLOB
+
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+autoload -Uz +X compinit && compinit
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' menu select
