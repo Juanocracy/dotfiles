@@ -123,3 +123,11 @@ Calibre\ Library/
 .sts4/
 .templateengine/
 .yarnrc
+.ServiceHub/
+.config/EOS-greeter.conf
+.config/filetypesrc
+.config/firewall/
+.config/kcalcrc
+.config/reflector-simple-free-params.txt
+.zcompdump-arch-5.9
+.zcompdump-arch-5.9.zwc
