@@ -131,3 +131,13 @@ Calibre\ Library/
 .config/reflector-simple-free-params.txt
 .zcompdump-arch-5.9
 .zcompdump-arch-5.9.zwc
+.config/GIMP/
+.config/arkrc
+.config/gtk-2.0/
+.config/haruna/
+.config/harunarc
+.config/vlc/
+.ovftool.ssldb
+Pictures/
+vmware/
+.config/krunnerrc

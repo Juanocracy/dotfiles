@@ -1,6 +1,12 @@
 {
   "add books dialog dir": "/home/juan/Downloads",
   "add books dialog dir-last-used-filter-spec-all-files": false,
+  "notified-version-updates": {
+    "__class__": "set",
+    "__value__": [
+      "7.18"
+    ]
+  },
   "sort_history": [
     [
       "timestamp",
