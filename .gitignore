@@ -141,3 +141,10 @@ Calibre\ Library/
 Pictures/
 vmware/
 .config/krunnerrc
+.config/VirtualBox/
+.config/btop/
+.config/geogebra/
+.config/kdenlive-layoutsrc
+.config/kdenliverc
+.config/obs-studio/
+Videos/

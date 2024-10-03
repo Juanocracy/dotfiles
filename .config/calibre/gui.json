@@ -178,7 +178,7 @@
       },
       "virtual_geometry": {
         "height": 1080,
-        "width": 3840,
+        "width": 1920,
         "x": 0,
         "y": 0
       }
@@ -394,7 +394,7 @@
     "__value__": "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfQAAAAFAQEBAAAAAAAAAAAAAAAAAGT/////AAAAhAAAAAAAAAAFAAAAZAAAAAEAAAAAAAAAZAAAAAEAAAAAAAAAZAAAAAEAAAAAAAAAZAAAAAEAAAAAAAAAZAAAAAEAAAAAAAAD6AAAAAAAAAAAAA=="
   },
   "library_usage_stats": {
-    "/home/juan/Calibre Library": 14
+    "/home/juan/Calibre Library": 16
   },
   "light_palette_name": "",
   "light_palettes": {
