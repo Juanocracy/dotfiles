@@ -148,3 +148,7 @@ vmware/
 .config/kdenliverc
 .config/obs-studio/
 Videos/
+.config/darktable/
+.config/okularpartrc
+.stremio-server/
+explicit_filter.restore
