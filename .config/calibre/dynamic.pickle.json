@@ -4,8 +4,9 @@
   "notified-version-updates": {
     "__class__": "set",
     "__value__": [
-      "7.19",
-      "7.18"
+      "7.18",
+      "7.20",
+      "7.19"
     ]
   },
   "sort_history": [

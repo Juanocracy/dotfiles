@@ -60,7 +60,11 @@ official_packages=(
   os-prober      #For grub detection.
   npm
   cmatrix
+  piper # For configure mouse
   docker
+  #DAW'S
+  lmms
+  ardour
 
   #Media Software
   obs-studio
@@ -91,10 +95,12 @@ rm -rf ~/.config/nvim/.git
 
 # Instalar paquetes desde AUR con yay
 aur_packages=(
+  # Essential apps for the system
   onlyoffice-bin
   microsoft-edge-stable-bin
   #nerd-fonts-git
   ttf-ms-fonts
+  otf-apple-fonts
   lavat-git
   cava
   ttf-font-awesome

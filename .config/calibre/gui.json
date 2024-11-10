@@ -8,6 +8,13 @@
     "__value__": "AAAA/wAAAAEAAAACAAABAAAAAEYA/////wEAAAABAA=="
   },
   "color_palette": "system",
+  "cover_corner_radius": 10,
+  "cover_grid_color": [
+    80,
+    80,
+    80
+  ],
+  "cover_grid_texture": null,
   "custom_colors_for_color_dialog": [
     [
       255,
@@ -106,7 +113,7 @@
       255
     ]
   ],
-  "dark_palette_name": "__current__",
+  "dark_palette_name": "",
   "dark_palettes": {
     "__current__": {
       "AlternateBase": "#2d2d2d",
@@ -133,6 +140,7 @@
       "WindowText-disabled": "#dddddd"
     }
   },
+  "default_author_link": null,
   "geometry-of-calibre_main_window_geometry": {
     "frame_geometry": {
       "height": 745,
@@ -184,30 +192,81 @@
       }
     }
   },
+  "geometry-of-choose-icon-theme-dialog-geometry": {
+    "frame_geometry": {
+      "height": 1005,
+      "width": 900,
+      "x": 5,
+      "y": 0
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 1005,
+      "width": 900,
+      "x": 5,
+      "y": 0
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 1005,
+      "width": 900,
+      "x": 5,
+      "y": 0
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAAFAAAAAAAAA4gAAAPsAAAABQAAAAAAAAOIAAAD7AAAAAAAAAAAB4AAAAAFAAAAAAAAA4gAAAPs"
+    },
+    "screen": {
+      "depth": 32,
+      "device_pixel_ratio": 1.0,
+      "geometry_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920,
+        "x": 0,
+        "y": 0
+      },
+      "index_in_screens_list": 0,
+      "manufacturer": "Samsung Electric Company",
+      "model": "S22E310/0x5A5A4537",
+      "name": "HDMI-A-1",
+      "serial": "",
+      "size_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920
+      },
+      "virtual_geometry": {
+        "height": 1080,
+        "width": 1920,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
   "geometry-of-customize-palette-geometry": {
     "frame_geometry": {
       "height": 640,
       "width": 826,
-      "x": 42,
+      "x": 0,
       "y": 0
     },
     "full_screened": false,
     "geometry": {
       "height": 640,
       "width": 826,
-      "x": 42,
+      "x": 0,
       "y": 0
     },
     "maximized": false,
     "normal_geometry": {
       "height": 640,
       "width": 826,
-      "x": 42,
+      "x": 0,
       "y": 0
     },
     "qt": {
       "__class__": "bytearray",
-      "__value__": "AdnQywADAAAAAAAqAAAAAAAAA2MAAAJ/AAAAKgAAAAAAAANjAAACfwAAAAAAAAAAB4AAAAAqAAAAAAAAA2MAAAJ/"
+      "__value__": "AdnQywADAAAAAAAAAAAAAAAAAzkAAAJ/AAAAAAAAAAAAAAM5AAACfwAAAAAAAAAAB4AAAAAAAAAAAAAAAzkAAAJ/"
     },
     "screen": {
       "depth": 32,
@@ -394,7 +453,7 @@
     "__value__": "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfQAAAAFAQEBAAAAAAAAAAAAAAAAAGT/////AAAAhAAAAAAAAAAFAAAAZAAAAAEAAAAAAAAAZAAAAAEAAAAAAAAAZAAAAAEAAAAAAAAAZAAAAAEAAAAAAAAAZAAAAAEAAAAAAAAD6AAAAAAAAAAAAA=="
   },
   "library_usage_stats": {
-    "/home/juan/Calibre Library": 16
+    "/home/juan/Calibre Library": 26
   },
   "light_palette_name": "",
   "light_palettes": {
@@ -456,5 +515,13 @@
   "qv_open_at_shutdown": false,
   "recently_used_languages": [],
   "search bar visible": true,
-  "tag browser search box visible": false
+  "show_emblems": false,
+  "tag browser search box visible": false,
+  "tb_search_order": {
+    "0": 1,
+    "1": 2,
+    "2": 3,
+    "3": 4,
+    "4": 0
+  }
 }
