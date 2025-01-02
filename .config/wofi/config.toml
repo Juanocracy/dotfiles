@@ -1,0 +1,2 @@
+[applications]
+idea = { exec = "/opt/intellij-idea-ultimate-edition/bin/idea.sh" }

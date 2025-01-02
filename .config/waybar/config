@@ -18,8 +18,22 @@
         "memory",
         "network",
         "pulseaudio",
+	      "battery",
         "custom/power"
     ],
+
+  "battery": {
+	"format": "{capacity}% 🔋 {time} {health}",
+	"tooltip-format": "{capacity}",
+	"format-full": "{capacity}",
+	"status": [
+	"Full",
+	"Discharging",
+	"Charging",
+	"Not Charging",
+	"Unknown"
+	]
+    },
 
     "custom/logo": {
         "format": "📦️",

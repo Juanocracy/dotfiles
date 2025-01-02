@@ -23,7 +23,11 @@ fi
 
 # Instalar paquetes desde repositorios oficiales
 official_packages=(
+  brightnessctl
   hyprland
+  hyprpaper
+  hyprlock
+  hyprpanel
   fastfetch
   kitty
   swaylock
