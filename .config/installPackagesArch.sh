@@ -41,8 +41,8 @@ official_packages=(
   thunderbird
   discord
   obsidian
-  steam #lib32-amdvlk for amd processor.
-  #blueman
+  steam   #lib32-amdvlk for amd processor.
+  blueman # Blueman-applet para iniciar en hyprland.
   git
   neovim
   bluez

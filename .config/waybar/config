@@ -107,7 +107,7 @@
         "timezone": "America/Bogota",
         "tooltip-format": "<tt>{calendar}</tt>",
         "format-alt": "🗓️  {:%a, %d %b %Y}",
-        "format": "🕦️ {:%I:%M %p}"
+        "format": "🕦️ {:%H:%M}"
     },
     "network": {
         "format-wifi": "{name},{icon}",
