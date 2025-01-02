@@ -114,6 +114,7 @@ aur_packages=(
   wlogout
   visual-studio-code-bin
   intellij-idea-ultimate-edition
+  webstorm
   spotify-adblock
   pipes.sh
   vesktop
