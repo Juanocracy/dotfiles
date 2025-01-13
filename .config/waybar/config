@@ -2,7 +2,7 @@
     "layer": "top",
     "position": "top",
     "spacing": 0,
-    "height": 10,
+    "height": 27,
 
     "modules-left": [
         "custom/launcher",
@@ -14,11 +14,11 @@
     ],
 
     "modules-right": [
-        "tray",
         "memory",
         "network",
         "pulseaudio",
 	      "battery",
+        "tray",
         "custom/power"
     ],
 
@@ -76,16 +76,19 @@
          "on-click": "playerctl play-pause",
          "on-click-right": "playerctl next"
      },
+
     "custom/firefox": {
         "format": "",
         "on-click": "firefox",
         "tooltip-format": "Firefox web browser"
     },
+
     "custom/kitty": {
         "format": "",
         "tooltip-format": "Kitty terminal",
         "on-click": "kitty $HOME"
     },
+
     "wlr/taskbar": {
         "format": "{icon}",
         "on-click": "activate",
@@ -100,20 +103,24 @@
         "format": "🧠 {}%",
         "max-length": 10
     },
+
     "tray": {
         "spacing": 10
     },
+
     "clock": {
         "timezone": "America/Bogota",
         "tooltip-format": "<tt>{calendar}</tt>",
         "format-alt": "🗓️  {:%a, %d %b %Y}",
         "format": "🕦️ {:%H:%M}"
     },
+
     "network": {
         "format-wifi": "{name},{icon}",
         "format-ethernet": "{ipaddr}/{cidr} 󰀂",
         "tooltip-format": "{ifname} via {gwaddr} 󰀂"
     },
+
     "pulseaudio": {
         "format": "Volume: {volume}% {icon}",
         "nospacing": 1,
@@ -124,12 +131,12 @@
             "default": ["🔈️", "🔉", "🔊"]
         },
         "on-click": "pavucontrol",
-        "scroll-step": 1
+        "scroll-step": 5 // Level of volume change on scroll
     },
     
     "custom/power": {
         "format": "🔌",
         "tooltip": false,
         "on-click": "wlogout"
-    }
+    },
 }

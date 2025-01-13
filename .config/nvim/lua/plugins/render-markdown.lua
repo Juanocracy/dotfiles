@@ -1,8 +1,8 @@
 return {
   "MeanderingProgrammer/render-markdown.nvim",
   dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- si usas el suite mini.nvim
-  -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- si usas plugins mini independientes
-  -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- si prefieres nvim-web-devicons
+  dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.icons" }, -- si usas plugins mini independientes
+  dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- si prefieres nvim-web-devicons
   opts = {
     enabled = true,
     max_file_size = 10.0,
@@ -43,7 +43,7 @@ return {
       sign = true,
       position = "overlay",
       icons = { "󰎤 ", "󰎧 ", "󰎪 ", "󰎭 ", "󰎱 ", "󰎳 " },
-      signs = { "🅞" },
+      signs = { "➡️" }, --signs = { "🅞" },
       width = "full",
       left_margin = 0,
       left_pad = 0,
@@ -114,12 +114,12 @@ return {
       enabled = true,
       position = "inline",
       unchecked = {
-        icon = "☐",
+        icon = "",
         highlight = "RenderMarkdownUnchecked",
         scope_highlight = nil,
       },
       checked = {
-        icon = "☑",
+        icon = "󰱒",
         highlight = "RenderMarkdownChecked",
         scope_highlight = nil,
       },

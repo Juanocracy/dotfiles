@@ -24,8 +24,10 @@ fi
 # Instalar paquetes desde repositorios oficiales
 official_packages=(
   brightnessctl
+  wlsunset # wlsunset -s 18:00 -S 8:30 -t 2500 -T 4000 esto es para la temperatura de la pantalla.
   hyprland
   hyprpaper
+  hypridle
   hyprlock
   hyprpanel
   fastfetch
@@ -100,6 +102,8 @@ rm -rf ~/.config/nvim/.git
 # Instalar paquetes desde AUR con yay
 aur_packages=(
   # Essential apps for the system
+  ags-hyprpanel-git
+  hyprshot
   onlyoffice-bin
   microsoft-edge-stable-bin
   #nerd-fonts-git
