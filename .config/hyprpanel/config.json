@@ -492,7 +492,7 @@
   "theme.bar.menus.menu.dashboard.scaling": 75,
   "theme.bar.menus.menu.clock.scaling": 75,
   "menus.transition": "crossfade",
-  "menus.clock.weather.location": "Bogotá",
+  "menus.clock.weather.location": "Los Angeles",
   "theme.bar.menus.menu.power.scaling": 70,
   "theme.bar.buttons.y_margins": "0.0em",
   "menus.clock.weather.enabled": true,
@@ -509,5 +509,6 @@
   "menus.transitionTime": 200,
   "wallpaper.image": "",
   "menus.dashboard.shortcuts.left.shortcut4.command": "wofi --show drun -I -a -n -W 500 -H 376 -S",
-  "menus.dashboard.shortcuts.right.shortcut3.command": "hyprshot -m output"
+  "menus.dashboard.shortcuts.right.shortcut3.command": "hyprshot -m output",
+  "menus.clock.weather.key": ""
 }
