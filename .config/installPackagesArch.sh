@@ -104,6 +104,9 @@ aur_packages=(
   # Essential apps for the system
   ags-hyprpanel-git
   hyprshot
+  # This is for screensharing in hyprland.
+  xdg-desktop-portal-hyprland-git
+
   onlyoffice-bin
   microsoft-edge-stable-bin
   #nerd-fonts-git
