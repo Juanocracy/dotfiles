@@ -107,6 +107,8 @@ aur_packages=(
   # This is for screensharing in hyprland.
   xdg-desktop-portal-hyprland-git
 
+  piavpn-bin
+  epy-ereader-gt # For reading epub files.
   onlyoffice-bin
   microsoft-edge-stable-bin
   #nerd-fonts-git
@@ -161,5 +163,7 @@ sudo chsh -s $(which zsh) juan
 
 # Habilitar servicios
 sudo systemctl enable sddm.service bluetooth.service docker.service
+# Servicio de piavpn-bin linea 110
+sudo systemctl enable --now piavpn.service
 
 echo "Instalación y configuración completada."

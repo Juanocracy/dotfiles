@@ -65,6 +65,7 @@
         "updates"
       ],
       "right": [
+        "kbinput",
         "volume",
         "network",
         "bluetooth",
@@ -110,7 +111,7 @@
   "bar.customModules.hyprsunset.temperature": "3000k",
   "bar.scrollSpeed": 7,
   "bar.customModules.weather.label": true,
-  "wallpaper.pywal": false,
+  "wallpaper.pywal": true,
   "theme.bar.menus.menu.notifications.scrollbar.color": "#bb9af7",
   "theme.bar.menus.menu.notifications.pager.label": "#565f89",
   "theme.bar.menus.menu.notifications.pager.button": "#bb9af7",
@@ -473,7 +474,7 @@
   "theme.bar.buttons.modules.cava.border": "#73daca",
   "bar.customModules.cava.showIcon": true,
   "bar.customModules.cava.spaceCharacter": " ",
-  "bar.customModules.cava.showActiveOnly": false,
+  "bar.customModules.cava.showActiveOnly": true,
   "bar.customModules.cava.stereo": true,
   "theme.bar.buttons.borderSize": "0.1em",
   "theme.bar.border.location": "none",
@@ -482,8 +483,8 @@
   "theme.bar.margin_top": "0.5em",
   "theme.bar.margin_sides": "0.0em",
   "bar.customModules.updates.leftClick": "kitty -e /usr/share/hyprpanel/scripts/runUpdates.sh -arch",
-  "bar.customModules.kbLayout.leftClick": "",
-  "bar.customModules.kbLayout.rightClick": "",
+  "bar.customModules.kbLayout.leftClick": "hyprctl switchxkblayout current next",
+  "bar.customModules.kbLayout.rightClick": "hyprctl switchxkblayout current prev",
   "theme.bar.buttons.modules.kbLayout.spacing": "0.45em",
   "theme.bar.border_radius": "0.4em",
   "theme.bar.outer_spacing": "0.5em",
@@ -507,8 +508,13 @@
   "theme.font.weight": 400,
   "tear": true,
   "menus.transitionTime": 200,
-  "wallpaper.image": "",
+  "wallpaper.image": "/home/juan/.config/wallpapers/rei-ayanami-de-neon-genesis-evangelion_1920x1080_xtrafondos.com.jpg",
   "menus.dashboard.shortcuts.left.shortcut4.command": "wofi --show drun -I -a -n -W 500 -H 376 -S",
   "menus.dashboard.shortcuts.right.shortcut3.command": "hyprshot -m output",
-  "menus.clock.weather.key": ""
+  "menus.clock.weather.key": "",
+  "theme.bar.menus.monochrome": true,
+  "bar.customModules.kbLayout.labelType": "code",
+  "theme.bar.buttons.modules.power.enableBorder": true,
+  "bar.customModules.kbLayout.scrollDown": "hyprctl switchxkblayout current next",
+  "bar.customModules.kbLayout.scrollUp": "hyprctl switchxkblayout current prev"
 }
