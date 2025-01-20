@@ -108,7 +108,7 @@
       ]
     }
   },
-  "bar.customModules.hyprsunset.temperature": "3000k",
+  "bar.customModules.hyprsunset.temperature": "2500k",
   "bar.scrollSpeed": 7,
   "bar.customModules.weather.label": true,
   "wallpaper.pywal": true,
