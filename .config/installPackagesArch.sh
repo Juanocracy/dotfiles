@@ -43,8 +43,10 @@ official_packages=(
   thunderbird
   discord
   obsidian
-  steam   #lib32-amdvlk for amd processor.
-  blueman # Blueman-applet para iniciar en hyprland.
+  steam         #lib32-amdvlk for amd processor.
+  gamescope     # This is a micro compositor for games gamescope -W 1920 -H 1080 -r 60 -- %command% --expose-wayland
+  vulkan-radeon # For amd processor api.
+  blueman       # Blueman-applet para iniciar en hyprland.
   git
   neovim
   bluez

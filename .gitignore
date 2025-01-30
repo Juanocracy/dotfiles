@@ -173,3 +173,7 @@ Videos/
 Zomboid/
 go/
 vmware/
+.config/nvim/lazy-lock.json
+.config/nvim/lazyvim.json
+.klei/
+.config/calibre/
