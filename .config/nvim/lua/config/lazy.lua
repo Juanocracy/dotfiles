@@ -32,6 +32,32 @@ require("lazy").setup({
         { "neovim/nvim-lspconfig", opts = { servers = { jdtls = {} } } },
       },
     },
+    {
+      "hrsh7th/nvim-cmp",
+      enabled = true,
+      dependencies = {
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-path",
+        "hrsh7th/cmp-cmdline",
+        "L3MON4D3/LuaSnip", -- Motor de snippets
+        "saadparwaiz1/cmp_luasnip",
+      },
+      config = function()
+        local cmp = require("cmp")
+        cmp.setup({
+          mapping = cmp.mapping.preset.insert({
+            ["<C-Space>"] = cmp.mapping.complete(),
+            ["<CR>"] = cmp.mapping.confirm({ select = true }),
+          }),
+          sources = cmp.config.sources({
+            { name = "nvim_lsp" },
+            { name = "buffer" },
+            { name = "path" },
+          }),
+        })
+      end,
+    },
   },
 
   defaults = {
@@ -43,7 +69,7 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  install = { colorscheme = { "tokyonight", "habamax" }},
+  install = { colorscheme = { "tokyonight", "habamax" } },
   checker = { enabled = true }, -- automatically check for plugin updates
   performance = {
     rtp = {

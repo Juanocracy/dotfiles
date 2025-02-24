@@ -177,3 +177,5 @@ vmware/
 .config/nvim/lazyvim.json
 .klei/
 .config/calibre/
+FiraxisLive/
+.minecraft/

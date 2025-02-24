@@ -31,7 +31,7 @@ return {
     },
     padding = { highlight = "Normal" },
     latex = {
-      enabled = true,
+      enabled = false,
       converter = "latex2text",
       highlight = "RenderMarkdownMath",
       top_pad = 0,
@@ -42,14 +42,14 @@ return {
       enabled = true,
       sign = true,
       position = "overlay",
-      icons = { "󰎤 ", "󰎧 ", "󰎪 ", "󰎭 ", "󰎱 ", "󰎳 " },
-      signs = { "➡️" }, --signs = { "🅞" },
-      width = "full",
+      icons = { "󰲡 ", "󰲣 ", "󰲥 ", "󰲧 ", "󰲩 ", "󰲫 " },
+      signs = { "󰫎 " },
+      width = "block",
       left_margin = 0,
-      left_pad = 0,
-      right_pad = 0,
+      left_pad = 2,
+      right_pad = 4,
       min_width = 0,
-      border = false,
+      border = true,
       border_virtual = false,
       border_prefix = false,
       above = "▂",
@@ -84,10 +84,10 @@ return {
       language_pad = 0,
       language_name = true,
       disable_background = { "diff" },
-      width = "full",
-      left_margin = 0,
-      left_pad = 0,
-      right_pad = 0,
+      width = "block",
+      left_margin = 0.5,
+      left_pad = 0.2,
+      right_pad = 0.2,
       min_width = 0,
       border = "thin",
       above = "▂",
@@ -104,38 +104,41 @@ return {
     },
     bullet = {
       enabled = true,
+      render_modes = true,
       icons = { "●", "○", "◆", "◇" },
-      ordered_icons = {},
+      ordered_icons = function(ctx)
+        local value = vim.trim(ctx.value)
+        local index = tonumber(value:sub(1, #value - 1))
+        return string.format("%d.", index > 1 and index or ctx.index)
+      end,
       left_pad = 0,
-      right_pad = 0,
+      right_pad = 1,
       highlight = "RenderMarkdownBullet",
     },
     checkbox = {
       enabled = true,
-      position = "inline",
+      render_modes = false,
+      position = "overlay",
       unchecked = {
-        icon = "",
+        icon = "✘ ",
         highlight = "RenderMarkdownUnchecked",
         scope_highlight = nil,
       },
       checked = {
-        icon = "󰱒",
+        icon = "✔ ",
         highlight = "RenderMarkdownChecked",
-        scope_highlight = nil,
+        scope_highlight = "@markup.strikethrough",
       },
       custom = {
-        todo = {
-          raw = " [-] ",
-          rendered = "☒",
-          highlight = "RenderMarkdownTodo",
-          scope_highlight = nil,
-        },
+        todo = { raw = "[-]", rendered = "󰥔 ", highlight = "RenderMarkdownTodo", scope_highlight = nil },
+        important = { raw = "[~]", rendered = "󰓎 ", highlight = "DiagnosticWarn" },
       },
     },
+
     quote = {
       enabled = true,
       icon = "▌",
-      repeat_linebreak = false,
+      repeat_linebreak = true,
       highlight = "RenderMarkdownQuote",
     },
     pipe_table = {
@@ -152,111 +155,27 @@ return {
       filler = "RenderMarkdownTableFill",
     },
     callout = {
-      note = {
-        raw = " [!NOTE] ",
-        rendered = "🛈 Note",
-        highlight = "RenderMarkdownInfo",
-      },
-      tip = {
-        raw = " [!TIP] ",
-        rendered = "💡 Tip",
-        highlight = "RenderMarkdownSuccess",
-      },
-      important = {
-        raw = " [!IMPORTANT] ",
-        rendered = "⚠ Important",
-        highlight = "RenderMarkdownHint",
-      },
-      warning = {
-        raw = " [!WARNING] ",
-        rendered = "⚠ Warning",
-        highlight = "RenderMarkdownWarn",
-      },
-      caution = {
-        raw = " [!CAUTION] ",
-        rendered = "⚠ Caution",
-        highlight = "RenderMarkdownError",
-      },
-      abstract = {
-        raw = " [!ABSTRACT] ",
-        rendered = "ℹ Abstract",
-        highlight = "RenderMarkdownInfo",
-      },
-      summary = {
-        raw = " [!SUMMARY] ",
-        rendered = "ℹ Summary",
-        highlight = "RenderMarkdownInfo",
-      },
-      tldr = {
-        raw = " [!TLDR] ",
-        rendered = "ℹ Tldr",
-        highlight = "RenderMarkdownInfo",
-      },
-      info = {
-        raw = " [!INFO] ",
-        rendered = "🛈 Info",
-        highlight = "RenderMarkdownInfo",
-      },
-      todo = {
-        raw = " [!TODO] ",
-        rendered = "🗒 Todo",
-        highlight = "RenderMarkdownInfo",
-      },
-      hint = {
-        raw = " [!HINT] ",
-        rendered = "💡 Hint",
-        highlight = "RenderMarkdownSuccess",
-      },
-      success = {
-        raw = " [!SUCCESS] ",
-        rendered = "✔ Success",
-        highlight = "RenderMarkdownSuccess",
-      },
-      check = {
-        raw = " [!CHECK] ",
-        rendered = "✔ Check",
-        highlight = "RenderMarkdownSuccess",
-      },
-      done = {
-        raw = " [!DONE] ",
-        rendered = "✔ Done",
-        highlight = "RenderMarkdownSuccess",
-      },
-      question = {
-        raw = " [!QUESTION] ",
-        rendered = "❓ Question",
-        highlight = "RenderMarkdownWarn",
-      },
-      help = {
-        raw = " [!HELP] ",
-        rendered = "❓ Help",
-        highlight = "RenderMarkdownWarn",
-      },
-      faq = {
-        raw = " [!FAQ] ",
-        rendered = "❓ Faq",
-        highlight = "RenderMarkdownWarn",
-      },
-      attention = {
-        raw = " [!ATTENTION] ",
-        rendered = "⚠ Attention",
-        highlight = "RenderMarkdownWarn",
-      },
-      failure = {
-        raw = " [!FAILURE] ",
-        rendered = "✖ Failure",
-        highlight = "RenderMarkdownError",
-      },
-      fail = {
-        raw = " [!FAIL] ",
-        rendered = "✖ Fail",
-        highlight = "RenderMarkdownError",
-      },
-      missing = {
-        raw = " [!MISSING] ",
-        rendered = "✖ Missing",
-        highlight = "RenderMarkdownError",
-      },
+      note = { raw = "[!NOTE]", rendered = "󰋽 Note", highlight = "RenderMarkdownInfo" },
+      tip = { raw = "[!TIP]", rendered = "󰌶 Tip", highlight = "RenderMarkdownSuccess" },
+      important = { raw = "[!IMPORTANT]", rendered = "󰅾 Important", highlight = "RenderMarkdownHint" },
+      warning = { raw = "[!WARNING]", rendered = "󰀪 Warning", highlight = "RenderMarkdownWarn" },
+      caution = { raw = "[!CAUTION]", rendered = "󰳦 Caution", highlight = "RenderMarkdownError" },
+      abstract = { raw = "[!ABSTRACT]", rendered = "󰨸 Abstract", highlight = "RenderMarkdownInfo" },
+      summary = { raw = "[!SUMMARY]", rendered = "󰨸 Summary", highlight = "RenderMarkdownInfo" },
+      tldr = { raw = "[!TLDR]", rendered = "󰨸 Tldr", highlight = "RenderMarkdownInfo" },
+      info = { raw = "[!INFO]", rendered = "󰋽 Info", highlight = "RenderMarkdownInfo" },
+      todo = { raw = "[!TODO]", rendered = "󰗡 Todo", highlight = "RenderMarkdownInfo" },
+      hint = { raw = "[!HINT]", rendered = "󰌶 Hint", highlight = "RenderMarkdownSuccess" },
+      success = { raw = "[!SUCCESS]", rendered = "󰄬 Success", highlight = "RenderMarkdownSuccess" },
+      check = { raw = "[!CHECK]", rendered = "󰄬 Check", highlight = "RenderMarkdownSuccess" },
+      done = { raw = "[!DONE]", rendered = "󰄬 Done", highlight = "RenderMarkdownSuccess" },
+      question = { raw = "[!QUESTION]", rendered = "󰘥 Question", highlight = "RenderMarkdownWarn" },
+      help = { raw = "[!HELP]", rendered = "󰘥 Help", highlight = "RenderMarkdownWarn" },
+      faq = { raw = "[!FAQ]", rendered = "󰘥 Faq", highlight = "RenderMarkdownWarn" },
+      attention = { raw = "[!ATTENTION]", rendered = "󰀪 Attention", highlight = "RenderMarkdownWarn" },
+      failure = { raw = "[!FAILURE]", rendered = "󰅖 Failure", highlight = "RenderMarkdownError" },
+      fail = { raw = "[!FAIL]", rendered = "󰅖 Fail", highlight = "RenderMarkdownError" },
+      missing = { raw = "[!MISSING]", rendered = "󰅖 Missing", highlight = "RenderMarkdownError" },
       danger = { raw = "[!DANGER]", rendered = "󱐌 Danger", highlight = "RenderMarkdownError" },
       error = { raw = "[!ERROR]", rendered = "󱐌 Error", highlight = "RenderMarkdownError" },
       bug = { raw = "[!BUG]", rendered = "󰨰 Bug", highlight = "RenderMarkdownError" },
@@ -298,12 +217,12 @@ return {
     -- level of the heading. Indenting starts from level 2 headings onward.
     indent = {
       -- Turn on / off org-indent-mode
-      enabled = false,
+      enabled = true,
       -- Amount of additional padding added for each heading level
       per_level = 2,
       -- Heading levels <= this value will not be indented
       -- Use 0 to begin indenting from the very first level
-      skip_level = 1,
+      skip_level = 6,
       -- Do not indent heading titles, only the body
       skip_heading = false,
     },
