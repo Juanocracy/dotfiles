@@ -23,16 +23,19 @@ fi
 
 # Instalar paquetes desde repositorios oficiales
 official_packages=(
+  # This is for screensharing in hyprland.
+  xdg-desktop-portal-hyprland
   brightnessctl
-  wlsunset # wlsunset -s 18:00 -S 8:30 -t 2500 -T 4000 esto es para la temperatura de la pantalla.
+  #wlsunset # wlsunset -s 18:00 -S 8:30 -t 2500 -T 4000 esto es para la temperatura de la pantalla.
   hyprland
   hyprpaper
   hypridle
   hyprlock
   hyprpanel
+  hyprsunset
   fastfetch
   kitty
-  swaylock
+  #swaylock
   btop
   jdk-openjdk
   python
@@ -53,23 +56,26 @@ official_packages=(
   bluez-tools
   bluez-utils
   pavucontrol
-  swaync
+  #swaync
   wofi
-  waybar
+  #waybar
   unzip
-  cliphist
+  ark
+  #cliphist
   starship
   ripgrep
   fd
   ttf-cascadia-code
   calibre
   dotnet-sdk
-  packagekit-qt6 # For installing apps through Discover on plasma
-  os-prober      #For grub detection.
+  #packagekit-qt6 # For installing apps through Discover on plasma
+  os-prober #For grub detection.
   npm
   cmatrix
   piper # For configure mouse
   docker
+  zellij
+  tmux
   #DAW'S
   lmms
   ardour
@@ -106,11 +112,9 @@ aur_packages=(
   # Essential apps for the system
   ags-hyprpanel-git
   hyprshot
-  # This is for screensharing in hyprland.
-  xdg-desktop-portal-hyprland-git
 
   piavpn-bin
-  epy-ereader-gt # For reading epub files.
+  #epy-ereader-gt # For reading epub files.
   onlyoffice-bin
   microsoft-edge-stable-bin
   #nerd-fonts-git
@@ -126,7 +130,7 @@ aur_packages=(
   noto-fonts-extra
   vmware-workstation
   swww
-  wlogout
+  #wlogout
   visual-studio-code-bin
   intellij-idea-ultimate-edition
   webstorm
