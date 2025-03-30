@@ -493,7 +493,7 @@
   "theme.bar.menus.menu.dashboard.scaling": 75,
   "theme.bar.menus.menu.clock.scaling": 75,
   "menus.transition": "crossfade",
-  "menus.clock.weather.location": "Los Angeles",
+  "menus.clock.weather.location": "Bogota",
   "theme.bar.menus.menu.power.scaling": 70,
   "theme.bar.buttons.y_margins": "0.0em",
   "menus.clock.weather.enabled": true,
@@ -516,5 +516,6 @@
   "bar.customModules.kbLayout.labelType": "code",
   "theme.bar.buttons.modules.power.enableBorder": true,
   "bar.customModules.kbLayout.scrollDown": "hyprctl switchxkblayout current next",
-  "bar.customModules.kbLayout.scrollUp": "hyprctl switchxkblayout current prev"
+  "bar.customModules.kbLayout.scrollUp": "hyprctl switchxkblayout current prev",
+  "theme.bar.buttons.systray.enableBorder": true
 }

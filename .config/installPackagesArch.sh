@@ -31,10 +31,13 @@ official_packages=(
   hyprpaper
   hypridle
   hyprlock
-  hyprpanel
   hyprsunset
+  xdg-desktop-portal-wlr
   fastfetch
+  network-manager-applet
+  ly # Display Manager
   kitty
+  rsync # rsync -av --remove-source-files /ruta/origen/ /ruta/destino/
   #swaylock
   btop
   jdk-openjdk
@@ -106,6 +109,9 @@ fi
 # Instalar LazyVim
 git clone https://github.com/LazyVim/Starter ~/.config/nvim
 rm -rf ~/.config/nvim/.git
+
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
 # Instalar paquetes desde AUR con yay
 aur_packages=(
