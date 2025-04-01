@@ -39,6 +39,7 @@ official_packages=(
   kitty
   rsync # rsync -av --remove-source-files /ruta/origen/ /ruta/destino/
   #swaylock
+  vlc
   btop
   jdk-openjdk
   python
@@ -88,6 +89,8 @@ official_packages=(
   gimp
   audacity
   darktable
+
+  arc-gtk-theme # change in /etc/environment
 )
 
 # Iterar sobre la lista de paquetes e intentar instalar cada uno
@@ -119,6 +122,7 @@ aur_packages=(
   ags-hyprpanel-git
   hyprshot
 
+  oh-my-zsh-git
   piavpn-bin
   #epy-ereader-gt # For reading epub files.
   onlyoffice-bin
@@ -137,6 +141,7 @@ aur_packages=(
   vmware-workstation
   swww
   #wlogout
+  stremio
   visual-studio-code-bin
   intellij-idea-ultimate-edition
   webstorm
@@ -152,6 +157,8 @@ aur_packages=(
   #Media Software
   #davinci-resolve
   tracktion-waveform
+
+  candy-icons-git # Change the icons in /etc/environment
 )
 
 for pkg in "${aur_packages[@]}"; do
@@ -172,6 +179,9 @@ sudo chsh -s $(which zsh) juan
 # GRUB_DISABLE_OS_PROBER=false
 # Guarda el archivo y actualiza la configuración de GRUB:
 # sudo grub-mkconfig -o /boot/grub/grub.cfg
+echo "GRUB_DISABLE_OS_PROBER=true" | sudo tee -a /etc/default/grub
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
 
 # Habilitar servicios
 sudo systemctl enable sddm.service bluetooth.service docker.service
