@@ -46,7 +46,7 @@ official_packages=(
   noto-fonts
   zsh # Command terminal is fundamental to configure the shell and the framework with the promp.
   zellij
-  thunar #dolphin
+  dolphin #thunar
   thunderbird
   discord
   obsidian
@@ -89,8 +89,6 @@ official_packages=(
   gimp
   audacity
   darktable
-
-  arc-gtk-theme # change in /etc/environment
 )
 
 # Iterar sobre la lista de paquetes e intentar instalar cada uno
@@ -113,6 +111,7 @@ fi
 git clone https://github.com/LazyVim/Starter ~/.config/nvim
 rm -rf ~/.config/nvim/.git
 
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
@@ -122,7 +121,6 @@ aur_packages=(
   ags-hyprpanel-git
   hyprshot
 
-  oh-my-zsh-git
   piavpn-bin
   #epy-ereader-gt # For reading epub files.
   onlyoffice-bin
@@ -155,18 +153,17 @@ aur_packages=(
   rider
 
   #Media Software
-  #davinci-resolve
+  davinci-resolve --asdeps opencl-clover-mesa
   tracktion-waveform
 
   candy-icons-git # Change the icons in /etc/environment
+  arc-gtk-theme # change in /etc/environment
+  apple_cursor
 )
 
 for pkg in "${aur_packages[@]}"; do
   yay -Syyu --noconfirm "$pkg"
 done
-
-# Install davinci-resolve with opencl-clover-mesa
-yay -Syyu davinci-resolve --asdeps opencl-clover-mesa
 
 # Change shell
 sudo chsh -s $(which zsh) juan
@@ -179,12 +176,14 @@ sudo chsh -s $(which zsh) juan
 # GRUB_DISABLE_OS_PROBER=false
 # Guarda el archivo y actualiza la configuración de GRUB:
 # sudo grub-mkconfig -o /boot/grub/grub.cfg
-echo "GRUB_DISABLE_OS_PROBER=true" | sudo tee -a /etc/default/grub
-sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+# echo "GRUB_DISABLE_OS_PROBER=true" | sudo tee -a /etc/default/grub
+# sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 
 # Habilitar servicios
-sudo systemctl enable sddm.service bluetooth.service docker.service
+# sudo systemctl enable sddm.service 
+sudo systemctl enable bluetooth.service docker.service
 # Servicio de piavpn-bin linea 110
 sudo systemctl enable --now piavpn.service
 
