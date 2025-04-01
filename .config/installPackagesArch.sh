@@ -153,7 +153,7 @@ aur_packages=(
   rider
 
   #Media Software
-  davinci-resolve --asdeps opencl-clover-mesa
+  #davinci-resolve --asdeps opencl-clover-mesa
   tracktion-waveform
 
   candy-icons-git # Change the icons in /etc/environment
@@ -165,8 +165,20 @@ for pkg in "${aur_packages[@]}"; do
   yay -Syyu --noconfirm "$pkg"
 done
 
+yay -S davinci-resolve opencl-clover-mesa --asdeps
+
 # Change shell
 sudo chsh -s $(which zsh) juan
+
+# Habilitar servicios
+# sudo systemctl enable sddm.service 
+sudo systemctl enable ly.service bluetooth.service docker.service
+# Servicio de piavpn-bin linea 110
+sudo systemctl enable --now piavpn.service
+
+# Permisos del directorio home
+sudo chown -R juan:juan /home/juan
+sudo chmod 700 /home/juan
 
 # Change the os-prober
 # Habilita os-prober: Asegúrate de que os-prober esté habilitado en la configuración de GRUB.
@@ -180,11 +192,5 @@ sudo chsh -s $(which zsh) juan
 # echo "GRUB_DISABLE_OS_PROBER=true" | sudo tee -a /etc/default/grub
 # sudo grub-mkconfig -o /boot/grub/grub.cfg
 
-
-# Habilitar servicios
-# sudo systemctl enable sddm.service 
-sudo systemctl enable bluetooth.service docker.service
-# Servicio de piavpn-bin linea 110
-sudo systemctl enable --now piavpn.service
 
 echo "Instalación y configuración completada."
