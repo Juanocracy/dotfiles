@@ -35,7 +35,7 @@ official_packages=(
   xdg-desktop-portal-wlr
   fastfetch
   network-manager-applet
-  ly # Display Manager
+  #ly # Display Manager
   kitty
   rsync # rsync -av --remove-source-files /ruta/origen/ /ruta/destino/
   #swaylock
@@ -46,7 +46,7 @@ official_packages=(
   noto-fonts
   zsh # Command terminal is fundamental to configure the shell and the framework with the promp.
   zellij
-  dolphin #thunar
+  thunar #dolphin
   thunderbird
   discord
   obsidian
@@ -101,20 +101,6 @@ for pkg in "${official_packages[@]}"; do
   fi
 done
 
-# Revisar el estado del bluetooth y activar el servicio si no está activo
-if ! systemctl is-active --quiet bluetooth.service; then
-  echo "Activando el servicio Bluetooth..."
-  sudo systemctl start bluetooth.service
-fi
-
-# Instalar LazyVim
-git clone https://github.com/LazyVim/Starter ~/.config/nvim
-rm -rf ~/.config/nvim/.git
-
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-
 # Instalar paquetes desde AUR con yay
 aur_packages=(
   # Essential apps for the system
@@ -157,9 +143,15 @@ aur_packages=(
   tracktion-waveform
 
   candy-icons-git # Change the icons in /etc/environment
-  arc-gtk-theme # change in /etc/environment
+  arc-gtk-theme   # change in /etc/environment
   apple_cursor
 )
+
+# For /etc/environment
+#GTK_THEME="Arc-Dark"
+#ICON_THEME="candy-icons"
+#XCURSOR_THEME="macOS"
+#XCURSOR_SIZE="22"
 
 for pkg in "${aur_packages[@]}"; do
   yay -Syyu --noconfirm "$pkg"
@@ -171,14 +163,26 @@ yay -S davinci-resolve opencl-clover-mesa --asdeps
 sudo chsh -s $(which zsh) juan
 
 # Habilitar servicios
-# sudo systemctl enable sddm.service 
-sudo systemctl enable ly.service bluetooth.service docker.service
+# sudo systemctl enable sddm.service
+#sudo systemctl enable ly.service
+sudo systemctl docker.service
 # Servicio de piavpn-bin linea 110
 sudo systemctl enable --now piavpn.service
 
-# Permisos del directorio home
-sudo chown -R juan:juan /home/juan
-sudo chmod 700 /home/juan
+# Revisar el estado del bluetooth y activar el servicio si no está activo
+if ! systemctl is-active --quiet bluetooth.service; then
+  echo "Activando el servicio Bluetooth..."
+  sudo systemctl start bluetooth.service
+  sudo systemctl enable bluetooth.service
+fi
+
+# Instalar LazyVim
+git clone https://github.com/LazyVim/Starter ~/.config/nvim
+rm -rf ~/.config/nvim/.git
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
 # Change the os-prober
 # Habilita os-prober: Asegúrate de que os-prober esté habilitado en la configuración de GRUB.
@@ -191,6 +195,5 @@ sudo chmod 700 /home/juan
 
 # echo "GRUB_DISABLE_OS_PROBER=true" | sudo tee -a /etc/default/grub
 # sudo grub-mkconfig -o /boot/grub/grub.cfg
-
 
 echo "Instalación y configuración completada."
