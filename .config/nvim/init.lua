@@ -1,6 +1,6 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
-require("plugins.neotree")
+require("plugins.snacks")
 require("plugins.obsidian")
 require("plugins.render-markdown")
 require("plugins.auto-save")

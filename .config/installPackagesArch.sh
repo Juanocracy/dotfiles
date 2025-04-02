@@ -34,6 +34,8 @@ official_packages=(
   hyprsunset
   xdg-desktop-portal-wlr
   fastfetch
+  ntfs-3g  # For mounting windows
+  gwenview # Visualize images
   network-manager-applet
   #ly # Display Manager
   kitty
@@ -158,6 +160,14 @@ for pkg in "${aur_packages[@]}"; do
 done
 
 yay -S davinci-resolve opencl-clover-mesa --asdeps
+
+# Esto es para que latex funcione en nvim con LazyVim.
+# 1. Instalar dependencias en Arch Linux (ImageMagick + LaTeX)
+sudo pacman -S imagemagick texlive
+# 2. Instalar Tree-sitter CLI globalmente (con npm)
+sudo npm install -g tree-sitter-cli
+# 3. Ejecutar en Neovim para instalar el parser de LaTeX
+nvim -c "TSInstall latex" -c "q"
 
 # Change shell
 sudo chsh -s $(which zsh) juan
