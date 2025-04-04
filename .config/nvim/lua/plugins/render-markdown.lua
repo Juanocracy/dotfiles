@@ -85,9 +85,9 @@ return {
       language_name = true,
       disable_background = { "diff" },
       width = "block",
-      left_margin = 0.5,
-      left_pad = 0.2,
-      right_pad = 0.2,
+      left_margin = 0,
+      left_pad = 0.015,
+      right_pad = 0.02,
       min_width = 0,
       border = "thin",
       above = "▂",
@@ -118,7 +118,6 @@ return {
     checkbox = {
       enabled = true,
       render_modes = false,
-      position = "overlay",
       unchecked = {
         icon = "✘ ",
         highlight = "RenderMarkdownUnchecked",

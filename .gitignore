@@ -183,3 +183,4 @@ FiraxisLive/
 node_modules
 package-lock.json
 package.json
+.wget-hsts

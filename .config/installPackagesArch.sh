@@ -41,6 +41,7 @@ official_packages=(
   kitty
   rsync # rsync -av --remove-source-files /ruta/origen/ /ruta/destino/
   #swaylock
+  pacman-contrib # For checkupdates module to hyprpanel
   vlc
   btop
   jdk-openjdk
@@ -163,9 +164,9 @@ yay -S davinci-resolve opencl-clover-mesa --asdeps
 
 # Esto es para que latex funcione en nvim con LazyVim.
 # 1. Instalar dependencias en Arch Linux (ImageMagick + LaTeX)
-sudo pacman -S imagemagick texlive
-# 2. Instalar Tree-sitter CLI globalmente (con npm)
-sudo npm install -g tree-sitter-cli
+sudo pacman -S imagemagick texlive texlive-core lazygit fzf
+# 2. Instalar Tree-sitter CLI para latex y mermaid-js para graficos mermaid globalmente (con npm)
+sudo npm install -g tree-sitter-cli @mermaid-js/mermaid-cli
 # 3. Ejecutar en Neovim para instalar el parser de LaTeX
 nvim -c "TSInstall latex" -c "q"
 
