@@ -4,23 +4,39 @@ return {
     config = function()
       local lspconfig = require("lspconfig")
 
+      -- Configuración de ltex
       lspconfig.ltex.setup({
-        cmd = { "ltex-ls" }, -- Asegúrate de que el ejecutable esté en tu PATH
-        filetypes = { "markdown", "tex", "txt" }, -- Define los tipos de archivo soportados
+        cmd = { "ltex-ls" },
+        filetypes = { "markdown" },
         settings = {
           ltex = {
-            language = "es-ES,en-US", -- Idiomas a utilizar
-            disabledRules = {
-              ["es-ES"] = {}, -- Aquí puedes desactivar reglas específicas
-              ["en-US"] = {}, -- Ejemplo: {"WHITESPACE"}
-            },
+            language = "es-ES,en-US",
+            disabledRules = {},
             dictionary = {
-              ["es-ES"] = {}, -- Palabras personalizadas en español
-              ["en-US"] = {}, -- Palabras personalizadas en inglés
+              ["es-ES"] = {}, -- Añade palabras personalizadas en español aquí
+              ["en-US"] = {}, -- Añade palabras personalizadas en inglés aquí
             },
-            hiddenFalsePositives = {
-              ["es-ES"] = {}, -- Falsos positivos ocultos
-              ["en-US"] = {},
+          },
+        },
+      })
+
+      -- Configuración de jdtls para Java
+      lspconfig.jdtls.setup({
+        cmd = { "jdtls" },
+        filetypes = { "java" },
+        root_dir = function()
+          return vim.fn.getcwd() -- Usa el directorio actual como raíz
+        end,
+        settings = {
+          java = {
+            eclipse = {
+              downloadSources = true,
+            },
+            configuration = {
+              updateBuildConfiguration = "interactive",
+            },
+            maven = {
+              downloadSources = true,
             },
           },
         },

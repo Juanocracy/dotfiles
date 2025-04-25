@@ -6,6 +6,9 @@ require("plugins.render-markdown")
 require("plugins.auto-save")
 require("plugins.dap")
 require("plugins.gruvbox")
+require("plugins.lspconfig")
+require("plugins.nvim-cmp")
+require("plugins.copilot")
 
 -- For enabling en and es spelling and grammar checking
 vim.opt.spell = true
