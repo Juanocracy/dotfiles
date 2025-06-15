@@ -20,18 +20,6 @@ require("lazy").setup({
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     -- import/override with your plugins
     { import = "plugins" },
-
-    {
-      "nvim-java/nvim-java",
-      config = function()
-        require("java").setup({
-          -- Aquí puedes añadir tus configuraciones personalizadas para nvim-java
-        })
-      end,
-      dependencies = {
-        { "neovim/nvim-lspconfig", opts = { servers = { jdtls = {} } } },
-      },
-    },
   },
 
   defaults = {

@@ -37,6 +37,7 @@ official_packages=(
   ntfs-3g  # For mounting windows
   gwenview # Visualize images
   network-manager-applet
+  geoclue # This is for geolocation in hyprland for zen browser.
   #ly # Display Manager
   kitty
   rsync # rsync -av --remove-source-files /ruta/origen/ /ruta/destino/
@@ -113,7 +114,7 @@ aur_packages=(
   piavpn-bin
   #epy-ereader-gt # For reading epub files.
   onlyoffice-bin
-  microsoft-edge-stable-bin
+  zen-browser-bin # microsoft-edge-stable-bin
   #nerd-fonts-git
   ttf-ms-fonts
   otf-apple-fonts
@@ -148,6 +149,7 @@ aur_packages=(
   candy-icons-git # Change the icons in /etc/environment
   arc-gtk-theme   # change in /etc/environment
   apple_cursor
+  otf-san-francisco
 )
 
 # For /etc/environment

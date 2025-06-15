@@ -1,24 +1,13 @@
 return {
   "epwalsh/obsidian.nvim",
-  version = "*", -- recommended, use latest release instead of latest commit
+  version = "*",
   lazy = true,
   ft = "markdown",
-  -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
-  -- event = {
-  --   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
-  --   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/*.md"
-  --   -- refer to `:h file-pattern` for more examples
-  --   "BufReadPre path/to/my-vault/*.md",
-  --   "BufNewFile path/to/my-vault/*.md",
-  -- },
   dependencies = {
-    -- Required.
     "nvim-lua/plenary.nvim",
-    "hrsh7th/nvim-cmp", -- For completion
-    "nvim-telescope/telescope.nvim", -- Picker
-    "nvim-treesitter/nvim-treesitter", -- Syntax highlighting
-
-    -- see below for full list of optional dependencies 👇
+    "hrsh7th/nvim-cmp",
+    "nvim-telescope/telescope.nvim",
+    "nvim-treesitter/nvim-treesitter",
   },
   opts = {
     workspaces = {
@@ -27,114 +16,123 @@ return {
         path = "~/Documents/ObsidianGit/Notes/",
       },
     },
-
-    -- Optional, customize how note IDs are generated given an optional title.
-    ---@param title string|?
-    ---@return string
-    -- Configuración para generar IDs únicos con soporte para acentos.
-
     note_id_func = function(title)
-      -- Genera un timestamp (segundos desde 1970-01-01).
       local timestamp = tostring(os.time())
-
-      -- Mantén los acentos y transforma el título en un formato válido.
-      local transformed_title = ""
-      if title ~= nil then
-        -- Reemplaza espacios con guiones, elimina caracteres no válidos y convierte a minúsculas.
-        transformed_title = title
-          :gsub(" ", "-") -- Reemplaza espacios con guiones.
-          :gsub("[^%w%-áéíóúÁÉÍÓÚñÑ]", "") -- Permite letras, números, guiones y caracteres acentuados.
-          :lower() -- Convierte todo a minúsculas.
-      else
-        -- Si no se proporciona un título, usa un valor predeterminado.
-        transformed_title = "nota"
-      end
-
-      -- Combina el título transformado con el timestamp para un ID único.
+      local transformed_title = title and title:gsub(" ", "-"):gsub("[^%w%-áéíóúÁÉÍÓÚñÑ]", ""):lower()
+        or "nota"
       return transformed_title .. "-" .. timestamp
     end,
-    -- Optional, customize how note file names are generated given the ID, target directory, and title.
-    ---@param spec { id: string, dir: obsidian.Path, title: string|? }
-    ---@return string|obsidian.Path The full path to the new note.
     note_path_func = function(spec)
-      -- Generate the file path using the ID.
       local path = spec.dir / tostring(spec.id)
       return path:with_suffix(".md")
     end,
-
-    -- Optional, customize the metadata to include aliases with spaces.
-    ---@param title string|?
-    ---@return table
     note_metadata_func = function(title)
       local aliases = {}
       if title ~= nil then
-        -- Use the original title with spaces as the alias.
         table.insert(aliases, title)
       end
       return {
         aliases = aliases,
       }
     end,
-
-    -- Configuración de mappings.
+    attachments = {
+      img_folder = "/home/juan/Documents/ObsidianGit/Excalidraw/Images/",
+    },
     mappings = {
-      -- Abre enlaces markdown o wiki con 'gf'.
       ["gf"] = {
         action = function()
-          vim.cmd("ObsidianLinkOpen")
+          vim.cmd("ObsidianFollowLink") -- Comando actualizado
         end,
         opts = { noremap = false, expr = true, buffer = true, desc = "Abrir enlace" },
       },
-      -- Alterna checkboxes con '<leader>ch'.
       ["<leader>ch"] = {
         action = function()
           vim.cmd("ObsidianToggleCheckbox")
         end,
         opts = { buffer = true, desc = "Alternar checkbox" },
       },
-      -- Acción inteligente: sigue enlaces o alterna checkboxes con '<cr>'.
+      -- ACCIÓN CORREGIDA PARA ENTER
       ["<cr>"] = {
         action = function()
-          vim.cmd("ObsidianSmartAction")
+          local obsidian_util = require("obsidian.util")
+          if obsidian_util.cursor_on_markdown_link() then
+            vim.cmd("ObsidianFollowLink")
+          else
+            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<CR>", true, false, true), "n", false)
+          end
         end,
         opts = { buffer = true, expr = true, desc = "Acción inteligente" },
       },
-      -- Crear una nueva nota con '<leader>cn'.
       ["<leader>cn"] = {
         action = function()
           vim.cmd("ObsidianNew")
         end,
         opts = { noremap = true, silent = false, desc = "Crear nueva nota" },
       },
-      -- Buscar una nota con '<leader>fn'.
       ["<leader>fn"] = {
         action = function()
           vim.cmd("ObsidianSearch")
         end,
         opts = { noremap = true, silent = true, desc = "Buscar nota" },
       },
-      -- Agregar una imagen con '<leader>ai'.
-      ["<leader>ai"] = {
+      ["<leader>af"] = {
         action = function()
-          local clipboard = vim.fn.getreg("+") -- Obtiene la ruta de la imagen desde el portapapeles
-
-          -- Verifica si el contenido del portapapeles es una ruta válida
+          local clipboard = vim.fn.getreg("+")
           if not vim.fn.filereadable(clipboard) then
             vim.notify("El portapapeles no contiene una ruta válida a un archivo.", vim.log.levels.ERROR)
             return
           end
-
-          local filename = vim.fn.fnamemodify(clipboard, ":t") -- Obtiene el nombre del archivo desde la ruta
+          local filename = vim.fn.fnamemodify(clipboard, ":t")
           local target_path = "~/Documents/ObsidianGit/Notes/Excalidraw/Images/" .. filename
-
-          -- Mueve la imagen desde el portapapeles al destino
           vim.fn.system({ "mv", clipboard, target_path })
-
-          -- Inserta la referencia de la imagen en el archivo Markdown actual
           local markdown_reference = string.format("![%s](%s)", filename, target_path)
           vim.api.nvim_put({ markdown_reference }, "l", true, true)
         end,
       },
     },
   },
+  config = function(_, opts)
+    require("obsidian").setup(opts)
+
+    -- Filtrar notas de .trash y registrar en cmp
+    vim.schedule(function()
+      if package.loaded["cmp"] then
+        local cmp = require("cmp")
+        local obsidian = require("obsidian")
+
+        -- Crear una fuente filtrada
+        local source = obsidian.source.new()
+        local original_complete = source.complete
+
+        source.complete = function(_, params, callback)
+          original_complete(_, params, function(items)
+            if not items then
+              return callback(items)
+            end
+
+            local filtered = {}
+            for _, item in ipairs(items) do
+              -- Excluir notas en .trash
+              if not item.abbr:lower():find("trash") then
+                table.insert(filtered, item)
+              end
+            end
+            callback(filtered)
+          end)
+        end
+
+        cmp.register_source("obsidian", source)
+      end
+    end)
+
+    -- Crear comando alternativo para compatibilidad
+    vim.api.nvim_create_user_command("ObsidianSmartAction", function()
+      local obsidian_util = require("obsidian.util")
+      if obsidian_util.cursor_on_markdown_link() then
+        vim.cmd("ObsidianFollowLink")
+      else
+        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<CR>", true, false, true), "n", false)
+      end
+    end, {})
+  end,
 }
