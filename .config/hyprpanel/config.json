@@ -88,5 +88,6 @@
   "bar.customModules.hyprsunset.temperature": "2000k",
   "theme.font.weight": 600,
   "bar.workspaces.applicationIconOncePerWorkspace": true,
-  "bar.workspaces.monitorSpecific": true
+  "bar.workspaces.monitorSpecific": true,
+  "theme.bar.transparent": true
 }
