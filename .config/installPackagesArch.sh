@@ -79,7 +79,6 @@ official_packages=(
   #packagekit-qt6 # For installing apps through Discover on plasma
   os-prober #For grub detection.
   npm
-  cmatrix
   piper # For configure mouse
   docker
   zellij
@@ -118,6 +117,7 @@ aur_packages=(
   #nerd-fonts-git
   ttf-ms-fonts
   otf-apple-fonts
+  cmatrix-git # Transparency allow.
   lavat-git
   cava
   ttf-font-awesome
