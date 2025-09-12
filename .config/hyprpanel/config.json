@@ -46,6 +46,7 @@
         "network",
         "bluetooth",
         "hyprsunset",
+        "battery",
         "systray",
         "clock",
         "notifications",
@@ -90,5 +91,9 @@
   "bar.workspaces.applicationIconOncePerWorkspace": true,
   "bar.workspaces.monitorSpecific": true,
   "theme.bar.transparent": true,
-  "menus.dashboard.powermenu.avatar.image": "/home/juan/.config/wallpapers/spider-man-noir-in-spider-man-into-the-spider-verse_1920x1080_xtrafondos.com.jpg"
+  "menus.dashboard.powermenu.avatar.image": "/home/juantp/.config/wallpapers/spider-man-noir-in-spider-man-into-the-spider-verse_1920x1080_xtrafondos.com.jpg",
+  "menus.media.displayTime": true,
+  "menus.media.displayTimeTooltip": true,
+  "menus.clock.weather.key": "",
+  "bar.autoHide": "never"
 }
