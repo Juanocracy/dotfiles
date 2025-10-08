@@ -1,38 +1,85 @@
 #!/bin/bash
-# ================================================
-# Script de lanzamiento optimizado para Steam/Proton en AMD
-# con FSR, Gamescope y mejoras de rendimiento.
-# ================================================
+#
+# Script de ejecución optimizado para Steam + Gamescope
+# Compatible con GPUs integradas y dedicadas
+# Juan, 2025
+#
+# Nota: úsalo en Steam en Opciones de lanzamiento:
+# ~/steam-launch.sh %command%
 
-# Esperar para dar tiempo a que levante el entorno gráfico (Steam, etc.)
 sleep 2
 
-# ==== 1. Escalado FSR a nivel de Proton/Wine ====
-export PROTON_FSR=1                             # Habilitar FSR en juegos de Proton
-export WINE_FULLSCREEN_FSR=1                    # Habilitar FSR en modo fullscreen
-export WINE_FULLSCREEN_FSR_CUSTOM_MODE=1280x720 # Resolución interna para FSR
-export RADV_FORCE_FSR=1                         # Forzar FSR a nivel de driver
+# ============================
+# Ajustes generales de Proton/DXVK
+# ============================
+export DXVK_ASYNC=1
+export DXVK_HUD=0
+export PROTON_NO_ESYNC=1
+export PROTON_NO_FSYNC=1
+export PROTON_USE_WINED3D=0
+export vblank_mode=0
+export MANGOHUD=1
 
-# ==== 2. Mejoras en Vulkan/DXVK para AMD ====
-export PROTON_USE_WINED3D=0  # Usar DXVK/Vulkan (más rápido que Wined3D)
-export RADV_PERFTEST=gpl     # Usar Graphics Pipeline Library para menos stutter
-export mesa_glthread=true    # Multi-hilo para OpenGL/Mesa (AMD/Intel)
-export DXVK_ASYNC=1          # Compilación asíncrona de shaders (ProtonGE recomendado)
-export vblank_mode=0         # Desactiva V-Sync para menos input lag (puede causar tearing)
-export AMD_DEBUG=nogpufaults # Evita crasheos por errores de GPU
+# ============================
+# Escalado FSR (AMD/Intel/NVIDIA)
+# ============================
+export PROTON_FSR=1
+export WINE_FULLSCREEN_FSR=1
+export WINE_FULLSCREEN_FSR_CUSTOM_MODE=1280x720 # resolución interna para escalar
+export RADV_FORCE_FSR=1
 
-# ==== 3. Overlay y monitoreo ====
-export MANGOHUD=1 # Habilitar MangoHud
-export DXVK_HUD=0 # Evitar HUD doble con MangoHud
+# ============================
+# Detección automática de GPU
+# ============================
+GPU_VENDOR=$(lspci | grep -E "VGA|3D" | grep -iE "amd|nvidia|intel" || true)
 
-# ==== 4. Lanzar con Gamescope ====
-# -W / -H = resolución final (pantalla)
-# -w / -h = resolución interna del juego (más baja para rendimiento)
-# --filter fsr = escalado de imagen con FSR
+if echo "$GPU_VENDOR" | grep -qi "nvidia"; then
+  echo "[INFO] GPU detectada: NVIDIA"
+  export __GL_THREADED_OPTIMIZATIONS=1
+  export __GL_GSYNC_ALLOWED=0
+  export __GL_VRR_ALLOWED=0
 
+elif echo "$GPU_VENDOR" | grep -qi "amd"; then
+  echo "[INFO] GPU detectada: AMD"
+  export RADV_PERFTEST=gpl
+  export AMD_DEBUG=nogpufaults
+  export mesa_glthread=true # <-- activado para AMD (mejora en Mesa)
+
+elif echo "$GPU_VENDOR" | grep -qi "intel"; then
+  echo "[INFO] GPU detectada: Intel"
+  export MESA_GL_VERSION_OVERRIDE=4.6
+  export MESA_GLSL_VERSION_OVERRIDE=460
+  export mesa_glthread=true # <-- activado para Intel (mejora en Mesa)
+
+else
+  echo "[WARN] No se detectó GPU (o lspci no devolvió nada). Usando configuración por defecto."
+fi
+
+# ============================
+# Detección del juego (por nombre del comando)
+# ============================
+GAME_NAME=$(echo "$@" | tr '[:upper:]' '[:lower:]')
+
+if echo "$GAME_NAME" | grep -qE "mortal|tekken"; then
+  echo "[INFO] Juego detectado: $GAME_NAME (modo rendimiento 1280x720 → 1920x1080)"
+  INTERNAL_W=1280
+  INTERNAL_H=720
+  OUTPUT_W=1920
+  OUTPUT_H=1080
+else
+  echo "[INFO] Juego detectado: $GAME_NAME (modo nativo 1920x1080)"
+  INTERNAL_W=1920
+  INTERNAL_H=1080
+  OUTPUT_W=1920
+  OUTPUT_H=1080
+fi
+
+# ============================
+# Lanzamiento con Gamescope + MangoHud + GameMode
+# ============================
 exec gamescope --backend auto \
-  -W 1920 -H 1080 \
-  -w 1280 -h 720 \
-  --scaler auto \
-  --filter fsr \
+  -W "$OUTPUT_W" -H "$OUTPUT_H" \
+  -w "$INTERNAL_W" -h "$INTERNAL_H" \
+  --fullscreen \
+  --force-grab-cursor \
   -- mangohud gamemoderun "$@"
