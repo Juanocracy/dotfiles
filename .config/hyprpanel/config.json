@@ -96,5 +96,15 @@
   "menus.media.displayTime": true,
   "menus.media.displayTimeTooltip": true,
   "menus.clock.weather.key": "",
-  "bar.autoHide": "never"
+  "bar.autoHide": "never",
+  "theme.bar.floating": false,
+  "theme.bar.buttons.enableBorders": false,
+  "theme.bar.border.location": "none",
+  "theme.bar.enableShadow": false,
+  "theme.bar.layer": "top",
+  "theme.bar.buttons.dashboard.enableBorder": false,
+  "theme.bar.buttons.media.enableBorder": true,
+  "theme.bar.buttons.modules.microphone.enableBorder": false,
+  "theme.bar.buttons.modules.updates.enableBorder": true,
+  "theme.bar.buttons.modules.cava.enableBorder": true
 }
