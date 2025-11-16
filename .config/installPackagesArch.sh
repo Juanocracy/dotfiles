@@ -37,7 +37,8 @@ official_packages=(
   ntfs-3g  # For mounting windows
   gwenview # Visualize images
   network-manager-applet
-  geoclue # This is for geolocation in hyprland for zen browser.
+  networkmanager-openvpn # This is for use PIA confs in openvpn.
+  geoclue                # This is for geolocation in hyprland for zen browser.
   #ly # Display Manager
   kitty
   rsync # rsync -av --remove-source-files /ruta/origen/ /ruta/destino/

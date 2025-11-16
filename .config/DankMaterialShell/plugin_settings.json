@@ -1,0 +1,9 @@
+{
+  "emojiLauncher": {
+    "enabled": true
+  },
+  "dankBatteryAlerts": {
+    "enabled": true,
+    "criticalThreshold": 5
+  }
+}
