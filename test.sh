@@ -19,6 +19,7 @@ export PROTON_NO_FSYNC=1
 export PROTON_USE_WINED3D=0
 export vblank_mode=0
 export MANGOHUD=1
+export MANGOHUD_CONFIG="font_size=10"
 
 # ============================
 # Escalado FSR (AMD/Intel/NVIDIA)

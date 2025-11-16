@@ -109,6 +109,7 @@ aur_packages=(
   # Essential apps for the system
   ags-hyprpanel-git
   hyprshot
+  dms-shell-bin
 
   piavpn-bin
   #epy-ereader-gt # For reading epub files.
