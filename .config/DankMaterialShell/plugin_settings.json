@@ -1,6 +1,8 @@
 {
   "emojiLauncher": {
-    "enabled": true
+    "enabled": true,
+    "trigger": ":",
+    "noTrigger": false
   },
   "dankBatteryAlerts": {
     "enabled": true,

@@ -111,6 +111,7 @@ aur_packages=(
   ags-hyprpanel-git
   hyprshot
   dms-shell-bin
+  dsearch-bin
 
   piavpn-bin
   #epy-ereader-gt # For reading epub files.
