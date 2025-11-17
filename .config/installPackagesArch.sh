@@ -112,6 +112,7 @@ aur_packages=(
   hyprshot
   dms-shell-bin
   dsearch-bin
+  grimblast
 
   piavpn-bin
   #epy-ereader-gt # For reading epub files.

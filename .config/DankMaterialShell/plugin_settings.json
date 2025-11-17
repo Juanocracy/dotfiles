@@ -7,5 +7,21 @@
   "dankBatteryAlerts": {
     "enabled": true,
     "criticalThreshold": 5
+  },
+  "powerUsagePlugin": {
+    "enabled": true
+  },
+  "webSearch": {
+    "enabled": true,
+    "defaultEngine": "bing",
+    "searchEngines": []
+  },
+  "calculator": {
+    "enabled": true,
+    "trigger": "=",
+    "noTrigger": true
+  },
+  "grimblast": {
+    "enabled": true
   }
 }

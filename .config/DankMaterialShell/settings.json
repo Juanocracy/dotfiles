@@ -167,6 +167,10 @@
       "enabled": true
     },
     {
+      "id": "grimblast",
+      "enabled": true
+    },
+    {
       "id": "clipboard",
       "enabled": true
     },
