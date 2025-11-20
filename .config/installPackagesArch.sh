@@ -114,6 +114,12 @@ aur_packages=(
   dsearch-bin
   grimblast
 
+  # Niri WM
+  niri                     # This a window manager.
+  fuzzel                   # This ir for niri launcher.
+  xdg-desktop-portal-gnome # This is for screenshot in niri.
+  xwayland-satellite       # This is for xwayland apps in niri.
+
   piavpn-bin
   #epy-ereader-gt # For reading epub files.
   onlyoffice-bin
