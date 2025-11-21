@@ -121,15 +121,15 @@
     {
       "id": "focusedWindow",
       "enabled": true
+    },
+    {
+      "id": "music",
+      "enabled": true
     }
   ],
   "dankBarCenterWidgets": [
     {
       "id": "clock",
-      "enabled": true
-    },
-    {
-      "id": "music",
       "enabled": true
     },
     {
@@ -200,9 +200,12 @@
   "spotlightModalViewMode": "list",
   "sortAppsAlphabetically": true,
   "appLauncherGridColumns": 4,
+  "weatherLocation": "New York, NY",
+  "weatherCoordinates": "40.7128,-74.0060",
   "useAutoLocation": true,
   "weatherEnabled": true,
   "networkPreference": "wifi",
+  "vpnLastConnected": "f6ae4637-80a0-4967-9ea9-23ca90a761c8",
   "iconTheme": "System Default",
   "launcherLogoMode": "os",
   "launcherLogoCustomPath": "",
@@ -241,7 +244,9 @@
   "launchPrefix": "",
   "brightnessDevicePins": {},
   "wifiNetworkPins": {},
-  "bluetoothDevicePins": {},
+  "bluetoothDevicePins": {
+    "preferredDevice": "48:D8:45:B0:13:77"
+  },
   "audioInputDevicePins": {},
   "audioOutputDevicePins": {},
   "gtkThemingEnabled": false,
@@ -263,7 +268,7 @@
   "dankBarAutoHideDelay": 250,
   "dankBarOpenOnOverview": false,
   "dankBarVisible": true,
-  "dankBarSpacing": 2,
+  "dankBarSpacing": 0,
   "dankBarBottomGap": 0,
   "dankBarInnerPadding": -8,
   "dankBarPosition": 0,
@@ -288,6 +293,13 @@
   "notificationTimeoutCritical": 0,
   "notificationPopupPosition": 0,
   "osdAlwaysShowValue": true,
+  "osdPosition": 5,
+  "osdVolumeEnabled": true,
+  "osdBrightnessEnabled": true,
+  "osdIdleInhibitorEnabled": true,
+  "osdMicMuteEnabled": true,
+  "osdCapsLockEnabled": true,
+  "osdPowerProfileEnabled": true,
   "powerActionConfirm": true,
   "powerMenuActions": [
     "reboot",
@@ -296,7 +308,7 @@
     "lock",
     "suspend"
   ],
-  "powerMenuDefaultAction": "logout",
+  "powerMenuDefaultAction": "poweroff",
   "powerMenuGridLayout": false,
   "customPowerActionLock": "",
   "customPowerActionLogout": "",
@@ -307,6 +319,7 @@
   "updaterUseCustomCommand": false,
   "updaterCustomCommand": "",
   "updaterTerminalAdditionalParams": "",
+  "displayNameMode": "system",
   "screenPreferences": {},
   "showOnLastDisplay": {},
   "configVersion": 1
