@@ -44,6 +44,9 @@ official_packages=(
   rsync # rsync -av --remove-source-files /ruta/origen/ /ruta/destino/
   #swaylock
   pacman-contrib # For checkupdates module to hyprpanel
+  tlp
+  tlp-rdw  # tlp para el manejo de compenentes en thinkpad para mejor batería. sudo systemctl enable --now tlp.
+  powertop # Para revisar estado de la batería y consumos actuales.
   vlc
   btop
   jdk-openjdk
@@ -113,6 +116,7 @@ aur_packages=(
   dms-shell-bin
   dsearch-bin
   grimblast
+  cliphist
 
   # Niri WM
   niri                     # This a window manager.
@@ -120,6 +124,7 @@ aur_packages=(
   xdg-desktop-portal-gnome # This is for screenshot in niri.
   xwayland-satellite       # This is for xwayland apps in niri.
 
+  tealdeer # This is for documentation on the terminal.
   piavpn-bin
   #epy-ereader-gt # For reading epub files.
   onlyoffice-bin
@@ -158,6 +163,7 @@ aur_packages=(
 
   candy-icons-git # Change the icons in /etc/environment
   arc-gtk-theme   # change in /etc/environment
+  bibata-cursor-theme
   apple_cursor
   otf-san-francisco
 )
@@ -165,8 +171,10 @@ aur_packages=(
 # For /etc/environment
 #GTK_THEME="Arc-Dark"
 #ICON_THEME="candy-icons"
-#XCURSOR_THEME="macOS"
-#XCURSOR_SIZE="22"
+# Para cursores y íconos con este archivo.
+# /usr/share/icons/default/index.theme here I change the cursor this the global form to change inherits.
+# /usr/share/icons/default/index.theme
+# ~/.icons/default/index.theme
 
 for pkg in "${aur_packages[@]}"; do
   yay -Syyu --noconfirm "$pkg"

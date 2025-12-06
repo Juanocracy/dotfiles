@@ -1,0 +1,24 @@
+layout {
+    pane split_direction="vertical" {
+        pane name="btop" {
+            command "btop"
+            focus true
+        }
+        pane split_direction="horizontal" {
+            pane name="cava" {
+                command "cava"
+            }
+            pane name="lavat" {
+                command "lavat"
+                args "-s10" "-r1" "-b20" "-p2"
+            }
+            pane name="cmatrix" {
+                command "cmatrix"
+                args "-raco" "-u" "10" "-M" "Juan"
+            }
+            pane name="pipes" {
+                command "pipes.sh"
+            }
+        }
+    }
+}

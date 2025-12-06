@@ -24,7 +24,7 @@ input {
             // localectl set-x11-keymap.
             layout "us,us"
             variant "intl,colemak"
-            options "grp:win_space_toggle,compose:ctrl:nocaps"
+            options "grp:win_space_toggle,caps:escape" // The caps:escape is fot the caps being able to delete instead of doing caps.
 
         }
 
@@ -74,6 +74,42 @@ input {
     // Focus windows and outputs automatically when moving the mouse into them.
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
     // focus-follows-mouse max-scroll-amount="0%"
+}
+
+// I added this to change the theme of my cursor
+  cursor {
+      xcursor-theme "Bibata-Modern-Classic"
+      xcursor-size 12
+  
+      hide-when-typing
+      hide-after-inactive-ms 1000
+  }
+
+// This is for setting my environment variables.
+  environment {
+    XCURSOR_SIZE "12"
+    XCURSOR_THEME "Bibata-Modern-Classic" 
+    ICON_THEME "candy-icons"
+    GTK_THEME "Materia-dark"
+    // Wayland esencial
+    XDG_CURRENT_DESKTOP "sway"
+    XDG_SESSION_TYPE "wayland"
+    
+    // Toolkits
+    QT_QPA_PLATFORM "wayland"
+    GDK_BACKEND "wayland"
+    SDL_VIDEODRIVER "wayland"
+    CLUTTER_BACKEND "wayland"
+    // Forzar modo oscuro en Electron
+    ELECTRON_EXTRA_FLAGS "--enable-features=WebUIDarkMode --force-dark-mode"
+    
+    // Para mejor compatibilidad
+    QT_QPA_PLATFORM "wayland;xcb"
+    GDK_BACKEND "wayland,x11"
+    // Forzar Qt a usar tema GTK
+    QT_STYLE_OVERRIDE "gtk3"
+    QT_QPA_PLATFORMTHEME "gtk3"
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
 }
 
 // You can configure outputs by their name, which you can find
@@ -274,11 +310,49 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 
-// This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-at-startup "waybar"
 spawn-at-startup "nm-applet"
+spawn-at-startup "/usr/lib/geoclue-2.0/demos/agent"
 spawn-at-startup "dms" "run"
 
+workspace "1" {
+}
+workspace "2" {
+}
+workspace "3" {
+}
+// Window-Rules for open my apps at startup.
+window-rule {
+    match app-id="zen"
+    open-on-workspace "2"
+    open-maximized true
+    match at-startup=true
+    // match is-focused=true
+}
+
+window-rule {
+    match app-id="Notion"
+    open-maximized true
+    open-on-workspace "2"
+    match at-startup=true
+}
+
+window-rule {
+    match app-id="discord"
+    open-on-workspace "3"
+    match at-startup=true
+    open-maximized true
+}
+
+window-rule {
+    match app-id="steam"
+    open-maximized true
+    open-on-workspace "3"
+    match at-startup=true
+}
+
+spawn-at-startup "zen-browser"
+spawn-at-startup "kitty zellij"
+spawn-at-startup "discord"
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
@@ -372,9 +446,10 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
-    Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-    Mod+N { spawn "dms" "ipc" "call" "spotligth" "toggle"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+    // Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+    Mod+S { spawn "thunar"; }
+    Mod+N { spawn-sh "dms ipc call spotlight toggle"; }
+    // Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
@@ -416,16 +491,16 @@ binds {
     Mod+Ctrl+Up    { move-window-up; }
     Mod+Ctrl+Right { move-column-right; }
     Mod+Ctrl+H     { move-column-left; }
-    Mod+Ctrl+J     { move-window-down; }
-    Mod+Ctrl+K     { move-window-up; }
+    // Mod+Ctrl+J     { move-window-down; }
+    // Mod+Ctrl+K     { move-window-up; }
     Mod+Ctrl+L     { move-column-right; }
 
     // Alternative commands that move across workspaces when reaching
     // the first or last window in a column.
     Mod+J     { focus-window-or-workspace-down; }
     Mod+K     { focus-window-or-workspace-up; }
-    // Mod+Ctrl+J     { move-window-down-or-to-workspace-down; }
-    // Mod+Ctrl+K     { move-window-up-or-to-workspace-up; }
+    Mod+Ctrl+J     { move-window-down-or-to-workspace-down; }
+    Mod+Ctrl+K     { move-window-up-or-to-workspace-up; }
 
     Mod+Home { focus-column-first; }
     Mod+End  { focus-column-last; }
