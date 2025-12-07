@@ -169,8 +169,10 @@ aur_packages=(
 )
 
 # For /etc/environment
-#GTK_THEME="Arc-Dark"
-#ICON_THEME="candy-icons"
+#GTK_THEME=Arc-Dark
+#ICON_THEME=candy-icons
+# XCURSOR_THEME=Bibata-Modern-Classic
+# XCURSOR_SIZE=16
 # Para cursores y íconos con este archivo.
 # /usr/share/icons/default/index.theme here I change the cursor this the global form to change inherits.
 # /usr/share/icons/default/index.theme
