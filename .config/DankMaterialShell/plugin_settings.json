@@ -25,5 +25,8 @@
   },
   "gitmojiLauncher": {
     "enabled": true
+  },
+  "dankDesktopWeather": {
+    "enabled": true
   }
 }
