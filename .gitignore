@@ -194,3 +194,6 @@ YouTube Music/
 .zcompdump-archlinux-5.9.zwc
 ly-session.log
 .zcompdump-archlinux-5.9.archlinux.318463
+.config/FreeCAD/
+.config/MangoHud/
+.config/autostart/
