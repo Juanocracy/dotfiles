@@ -111,6 +111,7 @@ done
 # Instalar paquetes desde AUR con yay
 aur_packages=(
   # Essential apps for the system
+  rtw89-dkms-git #This is for my chip Realtek for wifi stabilization.
   ags-hyprpanel-git
   hyprshot
   dms-shell-bin
