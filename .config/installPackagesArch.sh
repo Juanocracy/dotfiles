@@ -26,6 +26,7 @@ official_packages=(
   # This is for screensharing in hyprland.
   xdg-desktop-portal-hyprland
   brightnessctl
+  wireless_tools # This is for the WiFi works properly.
   #wlsunset # wlsunset -s 18:00 -S 8:30 -t 2500 -T 4000 esto es para la temperatura de la pantalla.
   hyprland
   hyprpaper
