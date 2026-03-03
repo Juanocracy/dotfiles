@@ -5,7 +5,11 @@
     "trigger": "="
   },
   "commandRunner": {
-    "enabled": true
+    "enabled": true,
+    "history": [
+      "dai",
+      "dab"
+    ]
   },
   "dankBatteryAlerts": {
     "enabled": true
