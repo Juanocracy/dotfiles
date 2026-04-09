@@ -25,12 +25,13 @@
   },
   "webSearch": {
     "enabled": true,
-    "searchEngines": []
+    "searchEngines": [],
+    "disabledEngines": []
   },
   "gitmojiLauncher": {
     "enabled": true
   },
   "dankDesktopWeather": {
     "enabled": true
-  },
+  }
 }
