@@ -5,12 +5,13 @@ layout {
             focus true
         }
         pane split_direction="horizontal" {
-            pane name="cava" {
-                command "cava"
+          pane name="cava" {
+            command "zsh"
+            args "-lc" "sleep 5 && cava"
             }
             pane name="lavat" {
-                command "lavat"
-                args "-s10" "-r1" "-b20" "-p2"
+                command "zsh"
+                args "-lc" "sleep 0.5 && lavat -s2 -r1 -b8 -p2"
             }
             pane name="cmatrix" {
                 command "cmatrix"
