@@ -15,7 +15,8 @@
     "enabled": true
   },
   "emojiLauncher": {
-    "enabled": true
+    "enabled": true,
+    "recentEmojis": "👇,🤙,✌️,👋"
   },
   "grimblast": {
     "enabled": true
@@ -32,6 +33,9 @@
     "enabled": true
   },
   "dankDesktopWeather": {
+    "enabled": true
+  },
+  "dmsLenovoBatterySettings": {
     "enabled": true
   }
 }
