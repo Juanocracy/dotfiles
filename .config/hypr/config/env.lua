@@ -1,0 +1,6 @@
+hl.env("ICON_THEME", "candy-icons")
+hl.env("GTK_THEME", "Arc-Dark")
+hl.env("XCURSOR_THEME", "Bibata-Modern-Classic")
+hl.env("XCURSOR_SIZE", "16")
+hl.env("HYPRCURSOR_THEME", "Bibata-Modern-Classic")
+hl.env("HYPRCURSOR_SIZE", "16")

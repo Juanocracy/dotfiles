@@ -37,5 +37,21 @@
   },
   "dmsLenovoBatterySettings": {
     "enabled": true
+  },
+  "bongoCat": {
+    "enabled": true,
+    "mouseEnabled": true,
+    "showMetrics": true,
+    "catYOffset": -1,
+    "soundEnabled": false,
+    "catColorMode": "classic"
+  },
+  "linuxWallpaperEngine": {
+    "enabled": false,
+    "activeType": "scene",
+    "monitorScenes": {
+      "eDP-1": "3032598625",
+      "*": "3032598625"
+    }
   }
 }
